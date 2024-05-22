@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:music/album.dart';
 import 'package:music/album_shelf.dart';
+import 'package:music/turntable.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: const Color.fromRGBO(250, 93, 82, 1),
           titleTextStyle: const TextStyle(
             color: Colors.white,
             fontFamily: 'Roboto',
@@ -23,47 +24,70 @@ class MyApp extends StatelessWidget {
           title: const Text('Music'),
         ),
         body: const Center(
-          child: SizedBox(
-            width: 900,
-            height: 900,
-            child: AlbumShelf(albums: <Album>[
-              Album(
-                albumName: "Let's Start Here",
-                imagePath: '../assets/albums/LetsStartHere.jpeg',
+          child: Column(
+            children: [
+              Padding(padding: EdgeInsets.all(20.0), child: Turntable()),
+              SizedBox(
+                width: 500,
+                height: 500,
+                child: AlbumShelf(albums: <Album>[
+                  Album(
+                    albumName: "Let's Start Here",
+                    imagePath: 'LetsStartHere',
+                    artistName: 'Lil Yachty',
+                    color: Colors.blueGrey,
+                  ),
+                  Album(
+                    albumName: 'MM...FOOD',
+                    imagePath: 'MM...Food',
+                    artistName: 'MF DOOM',
+                    color: Colors.green,
+                  ),
+                  Album(
+                    albumName: '3 Feet High And Rising',
+                    imagePath: '3FeetHighAndRising',
+                    artistName: 'De La Soul',
+                    color: Colors.yellow,
+                  ),
+                  Album(
+                    albumName: "Future Me Hates Me",
+                    imagePath: 'FutureMeHatesMe',
+                    artistName: 'The Beths',
+                    color: Colors.yellow,
+                  ),
+                  Album(
+                    albumName: 'Atavista',
+                    imagePath: 'Atavista',
+                    artistName: 'Childish Gambino',
+                    color: Colors.white,
+                  ),
+                  Album(
+                    albumName: "Light Upon The Lake",
+                    imagePath: 'LightUponTheLake',
+                    artistName: 'Whitney',
+                    color: Colors.white,
+                  ),
+                  Album(
+                    albumName: "The Lost Boy",
+                    imagePath: 'TheLostBoy',
+                    artistName: 'Cordae',
+                    color: Colors.blue,
+                  ),
+                  Album(
+                    albumName: "Coloring Book",
+                    imagePath: 'ColoringBook',
+                    artistName: 'Chance The Rapper',
+                    color: Colors.pink,
+                  ),
+                  Album(
+                    albumName: "Care For Me",
+                    imagePath: 'CareForMe',
+                    artistName: 'Saba',
+                    color: Colors.grey,
+                  ),
+                ]),
               ),
-              Album(
-                albumName: 'MM...FOOD',
-                imagePath: '../assets/albums/MM...Food.jpeg',
-              ),
-              Album(
-                albumName: '3 Feet High And Rising',
-                imagePath: '../assets/albums/3FeetHighAndRising.jpeg',
-              ),
-              Album(
-                albumName: "Future Me Hates Me",
-                imagePath: '../assets/albums/FutureMeHatesMe.jpeg',
-              ),
-              Album(
-                albumName: 'Atavista',
-                imagePath: '../assets/albums/Atavista.jpeg',
-              ),
-              Album(
-                albumName: "Light Upon The Lake",
-                imagePath: '../assets/albums/LightUponTheLake.jpeg',
-              ),
-              Album(
-                albumName: "The Lost Boy",
-                imagePath: '../assets/albums/TheLostBoy.jpeg',
-              ),
-              Album(
-                albumName: "Coloring Book",
-                imagePath: '../assets/albums/ColoringBook.jpeg',
-              ),
-              Album(
-                albumName: "Care For Me",
-                imagePath: '../assets/albums/CareForMe.jpeg',
-              ),
-            ]),
+            ],
           ),
         ),
       ),

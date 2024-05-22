@@ -5,8 +5,7 @@ class AlbumShelf extends StatelessWidget {
   final List<Album> albums;
   final double spacing;
 
-  const AlbumShelf({Key? key, required this.albums, this.spacing = 10.0})
-      : super(key: key);
+  const AlbumShelf({super.key, required this.albums, this.spacing = 10.0});
 
   @override
   Widget build(BuildContext context) {
