@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_text/circular_text.dart';
 
-
 class Record extends StatelessWidget {
   final Color color;
 
@@ -98,7 +97,13 @@ class Record extends StatelessWidget {
                   child: Container(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.white,
+                      border: Border.fromBorderSide(
+                        BorderSide(
+                          color: Colors.black,
+                          width: 1,
+                        ),
+                      ),
+                      color: Color.fromARGB(255, 255, 255, 255),
                     ),
                   ),
                 ),
