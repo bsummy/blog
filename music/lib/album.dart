@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:music/record.dart';
-import 'package:music/clipper.dart';
 
 class Album extends StatefulWidget {
   final String albumName;
@@ -22,17 +21,25 @@ class Album extends StatefulWidget {
 
 class _AlbumState extends State<Album> with TickerProviderStateMixin {
   bool _showRecord = false; // State variable for record visibility
-  late AnimationController _recordController;
+  bool _isSlidingForward = true; // State variable for slide direction
 
-  late final Animation<double> _animatione = CurvedAnimation(
-    parent: _recordController,
-    curve: Curves.decelerate,
-  );
+  late AnimationController _forwardSlideController;
+  late AnimationController _backwardSlideController;
+
+  var stackChildren;
+  var stackChildren1;
+  var stackChildren2;
+  int _topItemIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _recordController = AnimationController(
+    _forwardSlideController = AnimationController(
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
+
+    _backwardSlideController = AnimationController(
       duration: const Duration(milliseconds: 1000),
       vsync: this,
     );
@@ -40,84 +47,142 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    _recordController.dispose();
+    _forwardSlideController.dispose();
+    _backwardSlideController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final Animation<Offset> forwardSlideAnimation = Tween<Offset>(
+      begin: Offset.zero,
+
+      // Slide up from starting position
+
+      end: const Offset(0, -1.0),
+    ).animate(_forwardSlideController);
+
+    final Animation<Offset> backwardSlideAnimation = Tween<Offset>(
+      begin: const Offset(0, -1.0), // Slide down from top
+      end: Offset.zero,
+    ).animate(_backwardSlideController);
+
+    var stackChildren1 = [
+      Container(
+        key: const ValueKey("Album"),
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: Colors.black,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey[800] ?? Colors.black,
+              blurRadius: .5,
+              spreadRadius: 1.0,
+            ),
+          ],
+        ),
+        child: Image.asset("../assets/albums/${widget.imagePath}.jpeg"),
+      ),
+      if (_showRecord)
+        SlideTransition(
+          key: const ValueKey("Record"),
+          position: _isSlidingForward
+              ? forwardSlideAnimation
+              : backwardSlideAnimation,
+          child: DraggableRecord(
+            // grab the slide transition later
+            color: widget.color,
+            albumName: widget.albumName,
+            artistName: widget.artistName,
+          ),
+        )
+
+    ];
+
+    var stackChildren2 = [
+      if (_showRecord)
+        SlideTransition(
+          key: const ValueKey("Record"),
+          position: _isSlidingForward
+              ? forwardSlideAnimation
+              : backwardSlideAnimation,
+          child: DraggableRecord(
+            // grab the slide transition later
+            color: widget.color,
+            albumName: widget.albumName,
+            artistName: widget.artistName,
+          ),
+        ),
+      Container(
+        key: const ValueKey("Album"),
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: Colors.black,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey[800] ?? Colors.black,
+              blurRadius: .5,
+              spreadRadius: 1.0,
+            ),
+          ],
+        ),
+        child: Image.asset("../assets/albums/${widget.imagePath}.jpeg"),
+      ),
+    ];
+
+    if (_topItemIndex == 0) {
+      stackChildren = stackChildren1;
+    } else {
+      stackChildren = stackChildren1;
+    }
+
     return GestureDetector(
       onTap: () {
         // Handle tap
         _toggleRecordVisibility();
       },
       child: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: Colors.black,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[800] ?? Colors.black,
-                  blurRadius: .5,
-                  spreadRadius: 1.0,
-                ),
-              ],
-            ),
-            child: Image.asset("../assets/albums/${widget.imagePath}.jpeg"),
-          ),
-          if (_showRecord)
-          SizeTransition(
-            sizeFactor: _animatione,
-            axis: Axis.vertical,
-            axisAlignment: -1,
-            child: SlideTransition(
-              position: TweenSequence<Offset>([
-                TweenSequenceItem<Offset>(
-                  tween: Tween<Offset>(
-                    begin: const Offset(0, 0.0),
-                    end: const Offset(0, -1),
-                  ),
-                  weight: 50,
-                ),
-                TweenSequenceItem<Offset>(
-                  tween: Tween<Offset>(
-                    begin: const Offset(0, -1),
-                    end: const Offset(0, 0.0),
-                  ),
-                  weight: 50,
-                )
-              ]).animate(CurvedAnimation(
-                parent: _recordController,
-                curve: Curves.fastEaseInToSlowEaseOut,
-              )),
-              child: DraggableRecord(
-                color: widget.color,
-                albumName: widget.albumName,
-                artistName: widget.artistName,
-              ),
-            ),
-          ),
-
-        ],
+        children: stackChildren,
       ),
     );
   }
 
+  void _bringToTop() {
+    setState(() {
+      _topItemIndex = (_topItemIndex == 0) ? 1 : 0;
+    });
+  }
+
+  void _toggleSlideDirection() {
+    setState(() {
+      _isSlidingForward = !_isSlidingForward;
+
+      if (_isSlidingForward) {
+        _forwardSlideController.forward();
+      } else {
+        _backwardSlideController.forward();
+      }
+    });
+  }
+
   // Function to toggle record visibility
   void _toggleRecordVisibility() {
-    if (!_showRecord) {
-      setState(() {
-        _showRecord = true;
-      });
-      _recordController.forward();
-    } else {
-      _recordController.reverse().whenComplete(() {
-        setState(() {
-          _showRecord = false;
-        });
-      });
-    }
+    setState(() {
+      _showRecord = true;
+    });
+
+    _forwardSlideController.forward();
+    _backwardSlideController.forward().whenComplete(() {
+      _bringToTop();
+      _backwardSlideController.reset();
+      _backwardSlideController.forward();
+    });
+
+
+
+
+    // setState(() {
+    //   _showRecord = false;
+    // });
   }
 }
