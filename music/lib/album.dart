@@ -123,9 +123,5 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
       _bringToTop();
       _forwardSlideController.reverse();
     });
-
-    // setState(() {
-    //   _showRecord = false;
-    // });
   }
 }

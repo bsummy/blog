@@ -29,7 +29,7 @@ class Record extends StatelessWidget {
                   BoxShadow(
                     color: Colors.grey[800] ??
                         Colors.black, // Dark grey for a slight shadow effect
-                    blurRadius: 5.0, // Adjust blur for desired depth
+                    blurRadius: 2.0, // Adjust blur for desired depth
                     spreadRadius: 2.0, // Adjust spread for shadow size
                   ),
                 ],
@@ -73,7 +73,7 @@ class Record extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                space: 10,
+                                space: 6,
                                 startAngle: 90,
                                 startAngleAlignment: StartAngleAlignment.center,
                                 direction: CircularTextDirection.anticlockwise,
@@ -130,10 +130,13 @@ class DraggableRecord extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Draggable<Record>(
+
       data: Record(color: color, albumName: albumName, artistName: artistName),
       feedback:
           Record(color: color, albumName: albumName, artistName: artistName),
-      childWhenDragging: Container(),
+      childWhenDragging: Container(
+
+      ),
       onDragEnd: (details) {
         // Handle drag end (optional)
       },
