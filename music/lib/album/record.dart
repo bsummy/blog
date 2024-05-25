@@ -21,18 +21,25 @@ class Record extends StatelessWidget {
         height: 150,
         child: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.black,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey[800] ??
-                        Colors.black, // Dark grey for a slight shadow effect
-                    blurRadius: 2.0, // Adjust blur for desired depth
-                    spreadRadius: 2.0, // Adjust spread for shadow size
+            Center(
+              child: FractionallySizedBox(
+                widthFactor: .95,
+                heightFactor: .95,
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.black,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[800] ??
+                            Colors
+                                .black, // Dark grey for a slight shadow effect
+                        blurRadius: 2.0, // Adjust blur for desired depth
+                        spreadRadius: 2.0, // Adjust spread for shadow size
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
             Center(
@@ -116,31 +123,4 @@ class Record extends StatelessWidget {
   }
 }
 
-class DraggableRecord extends StatelessWidget {
-  final Color color;
-  final String albumName;
-  final String artistName;
 
-  const DraggableRecord(
-      {super.key,
-      required this.color,
-      required this.albumName,
-      required this.artistName});
-
-  @override
-  Widget build(BuildContext context) {
-    return Draggable<Record>(
-
-      data: Record(color: color, albumName: albumName, artistName: artistName),
-      feedback:
-          Record(color: color, albumName: albumName, artistName: artistName),
-      childWhenDragging: Container(
-
-      ),
-      onDragEnd: (details) {
-        // Handle drag end (optional)
-      },
-      child: Record(color: color, albumName: albumName, artistName: artistName),
-    );
-  }
-}

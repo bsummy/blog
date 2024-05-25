@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music/record.dart';
+import 'package:music/album/draggable_record.dart';
 
 class Album extends StatefulWidget {
   final String albumName;
@@ -115,13 +115,16 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
 
   // Function to toggle record visibility
   void _toggleRecordVisibility() {
-    setState(() {
-      // so records don't appear when page renders
-      _showRecord = true;
-    });
-    _forwardSlideController.forward().whenComplete(() {
-      _bringToTop();
-      _forwardSlideController.reverse();
-    });
+    if (!_showRecord) {
+      setState(() {
+        // so records don't appear when page renders
+        _showRecord = true;
+      });
+    }
+      _forwardSlideController.forward().whenComplete(() {
+        _bringToTop();
+        _forwardSlideController.reverse();
+      });
+
   }
 }

@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:music/play_button.dart';
-import 'package:music/record.dart';
+import 'package:music/turntable/play_button.dart';
+import 'package:music/album/record.dart';
 import 'package:flutter_circular_text/circular_text.dart';
-import 'package:music/rotating_disk.dart';
-import 'package:music/playback_state.dart';
+import 'package:music/turntable/rotating_disk.dart';
+import 'package:music/state/playback_state.dart';
 import 'package:provider/provider.dart';
+import 'package:music/turntable/techno_screen.dart';
 
 class Turntable extends StatelessWidget {
   const Turntable({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // might need the playback state to display what's playing on the technoscreen
+
     return Container(
       width: 400,
       height: 200,
@@ -20,16 +23,36 @@ class Turntable extends StatelessWidget {
       ),
       child: const Stack(
         children: [
-          Center(child: PlayButton()),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Align(
+                alignment: Alignment.topCenter,
+                child: TechnoScreen(
+                  // Replace TechnoScreen with PlayButton
+                  albumName: 'Welcome,',
+                  artistName: 'Bennett',
+                )),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child:
+                Align(alignment: Alignment.bottomCenter, child: PlayButton()),
+          ),
           Center(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
-                  child: Disk(side: 'left'),
+                  child: Padding(
+                    padding: EdgeInsets.all(4.0),
+                    child: Disk(side: 'left'),
+                  ),
                 ),
                 Flexible(
-                  child: Disk(side: 'right'),
+                  child: Padding(
+                    padding: EdgeInsets.all(4.0),
+                    child: Disk(side: 'right'),
+                  ),
                 ),
               ],
             ),
@@ -70,6 +93,7 @@ class _DiskState extends State<Disk> {
           albumName = record?.albumName;
         });
       },
+
       builder: (context, candidateData, rejectedData) => Container(
         width: 150,
         height: 150,

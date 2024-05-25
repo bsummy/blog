@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music/record.dart';
-import 'package:music/infinite_animation.dart';
+import 'package:music/album/record.dart';
+import 'package:music/turntable/infinite_animation.dart';
 
 class RotatingDisk extends StatefulWidget {
   final bool isPlaying;
@@ -20,7 +20,10 @@ class _RotatingDiskState extends State<RotatingDisk> {
     return GestureDetector(
         onTap: () {
           // remove the record from the disk
-          setState(() {});
+          // setState(() {
+          //   // this needs to be fixed later because it looks buggy when the record is removed
+          //   widget.record = null;
+          // });
         },
         child: (widget.isPlaying)
             ? InfiniteAnimation(
