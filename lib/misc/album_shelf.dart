@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music/album/album.dart';
+import '../album/album.dart';
 
 class AlbumShelf extends StatelessWidget {
   final List<Album> albums;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music/misc/nav_bar.dart';
+import '../misc/nav_bar.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});

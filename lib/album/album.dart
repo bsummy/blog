@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:music/album/draggable_record.dart';
+import 'draggable_vinyl.dart';
 
 class Album extends StatefulWidget {
   final String blogName;
   final String imagePath;
+  final String postPath;
   final String date;
   final Color color;
 
@@ -11,6 +12,7 @@ class Album extends StatefulWidget {
     super.key,
     required this.blogName,
     required this.imagePath,
+    required this.postPath,
     required this.date,
     required this.color,
   });
@@ -55,8 +57,9 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
     final recordStackItem = SlideTransition(
       // slide transition that holds the record
       position: forwardSlideAnimation,
-      child: DraggableRecord(
+      child: DraggableVinyl(
         color: widget.color,
+        postPath: widget.postPath,
         blogName: widget.blogName,
         date: widget.date,
       ),
@@ -75,6 +78,7 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
           ),
         ],
       ),
+      // change this path when we go to full blog posts
       child: Image.asset("../assets/albums/${widget.imagePath}.jpeg"),
     );
 

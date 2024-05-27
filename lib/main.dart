@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:music/state/disk_state.dart';
+import 'state/disk_state.dart';
 import 'package:provider/provider.dart';
-import 'package:music/state/playback_state.dart';
-import 'package:music/page/home_page.dart';
+import 'state/playback_state.dart';
+import 'page/home_page.dart';
 
 
 void main() {
