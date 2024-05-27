@@ -52,16 +52,10 @@ class Turntable extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
-                  child: Padding(
-                    padding: EdgeInsets.all(4.0),
-                    child: Disk(side: 'left'),
-                  ),
+                  child: Disk(side: 'left'),
                 ),
                 Flexible(
-                  child: Padding(
-                    padding: EdgeInsets.all(4.0),
-                    child: Disk(side: 'right'),
-                  ),
+                  child: Disk(side: 'right'),
                 ),
               ],
             ),
@@ -99,69 +93,73 @@ class _DiskState extends State<Disk> {
       onAcceptWithDetails: (details) {
         setState(() {
           record = details.data;
-          albumName = record?.albumName;
+          albumName = record?.blogName;
         });
       },
 
-      builder: (context, candidateData, rejectedData) => Container(
-        width: 150,
-        height: 150,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.grey[700],
-        ),
-        child: Stack(children: [
-          Center(
-            child: FractionallySizedBox(
-              widthFactor: .9,
-              heightFactor: .9,
-              child: Center(
-                child: Stack(children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey[800],
-                    ),
-                  ),
-                  CircularText(children: [
-                    TextItem(
-                      text: const Text(
-                        "Drag an Album Here...",
-                        style: TextStyle(
-                          fontSize: 28,
-                          color: Color(0xFF9E9E9E),
-                        ),
+      builder: (context, candidateData, rejectedData) => Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: Container(
+          width: 150,
+          height: 150,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.grey[700],
+          ),
+          child: Stack(children: [
+            Center(
+              child: FractionallySizedBox(
+                widthFactor: .9,
+                heightFactor: .9,
+                child: Center(
+                  child: Stack(children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.grey[800],
                       ),
-                      space: 18,
-                      startAngle: -90,
-                      startAngleAlignment: StartAngleAlignment.center,
-                      direction: CircularTextDirection.clockwise,
                     ),
+                    CircularText(children: [
+                      TextItem(
+                        text: const Text(
+                          "Drag an Album Here...",
+                          style: TextStyle(
+                            fontSize: 28,
+                            color: Color(0xFF9E9E9E),
+                          ),
+                        ),
+                        space: 16,
+                        startAngle: -90,
+                        startAngleAlignment: StartAngleAlignment.center,
+                        direction: CircularTextDirection.clockwise,
+                      ),
+                    ]),
                   ]),
-                ]),
+                ),
               ),
             ),
-          ),
-          Center(
-            child: FractionallySizedBox(
-              widthFactor: 0.05,
-              heightFactor: 0.05,
-              child: Center(
-                child: Container(
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
+            Center(
+              child: FractionallySizedBox(
+                widthFactor: 0.05,
+                heightFactor: 0.05,
+                child: Center(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          if (record != null && widget.side == 'left')
-            RotatingDisk(isPlaying: playbackState.isLeftPlaying, record: record)
-          else if (record != null && widget.side == 'right')
-            RotatingDisk(
-                isPlaying: playbackState.isRightPlaying, record: record)
-        ]),
+            if (record != null && widget.side == 'left')
+              RotatingDisk(
+                  isPlaying: playbackState.isLeftPlaying, record: record)
+            else if (record != null && widget.side == 'right')
+              RotatingDisk(
+                  isPlaying: playbackState.isRightPlaying, record: record)
+          ]),
+        ),
       ),
     );
   }

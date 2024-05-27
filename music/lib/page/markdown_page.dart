@@ -2,36 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:music/misc/nav_bar.dart';
 import 'package:music/blog/blog_display.dart';
 
-
-
 class MarkdownPage extends StatelessWidget {
+  final String markdownFilePath;
+  final String blogName;
+  final String date;
 
-  const MarkdownPage({super.key});
+  const MarkdownPage({
+    super.key,
+    required this.markdownFilePath,
+    required this.blogName,
+    required this.date,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
-          child: NavBar(),
-        ),
-        body: Navigator(
-          onGenerateRoute: (settings) {
-            return MaterialPageRoute(
-              builder: (context) {
-                return const BlogDisplay(
-                            markdownFilePath: "../assets/posts/blog1",
-                            title: "Blog Post 1",
-                            date: "2024-05-25",
-                          );
-              },
-            );
-          },
-        ),
-      );
-
-
-
-
-    }
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: NavBar(),
+      ),
+      body: Navigator(
+        onGenerateRoute: (settings) {
+          return MaterialPageRoute(
+            builder: (context) {
+              return BlogDisplay(
+                markdownFilePath: "blog1", // when there's more blogs, need to move this up the tree
+                blogName: blogName,
+                date: date,
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
 }

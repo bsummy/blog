@@ -4,13 +4,13 @@ import 'package:music/blog/blog_carousel.dart';
 
 class BlogPost extends StatelessWidget {
   final String markdown;
-  final String title;
+  final String blogName;
   final String date;
   final String path;
   const BlogPost(
       {super.key,
       required this.markdown,
-      required this.title,
+      required this.blogName,
       required this.date,
       required this.path});
 
@@ -31,7 +31,7 @@ class BlogPost extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          title,
+                          blogName,
                           style: const TextStyle(
                             fontFamily:
                                 'Lora', // making lora my title font, but it doesn't really work
