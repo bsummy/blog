@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music/turntable/infinite_animation.dart';
-import 'package:music/state/disk_state.dart';
+import 'infinite_animation.dart';
+import '../state/disk_state.dart';
 import 'package:provider/provider.dart';
 
 

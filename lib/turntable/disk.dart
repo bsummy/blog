@@ -1,15 +1,15 @@
 
 import 'package:flutter/material.dart';
-import 'package:music/album/vinyl.dart';
-import 'package:music/state/disk_state.dart';
-import 'package:music/state/playback_state.dart';
-import 'package:music/turntable/rotating_disk.dart';
+import '../album/vinyl.dart';
+import '../state/disk_state.dart';
+import '../state/playback_state.dart';
+import 'rotating_disk.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_circular_text/circular_text.dart';
 
 
 class Disk extends StatefulWidget {
-  final bool isLeft; 
+  final bool isLeft;
 
   const Disk({
     super.key,

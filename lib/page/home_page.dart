@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:music/album/album.dart';
-import 'package:music/blog/blog_vinyl.dart';
-import 'package:music/misc/album_shelf.dart';
-import 'package:music/misc/nav_bar.dart';
-import 'package:music/turntable/turntable.dart';
+import '../album/album.dart';
+import '../blog/blog_vinyl.dart';
+import '../misc/album_shelf.dart';
+import '../misc/nav_bar.dart';
+import '../turntable/turntable.dart';
 import 'package:provider/provider.dart';
-import 'package:music/state/disk_state.dart';
-import 'package:music/state/playback_state.dart';
+import '../state/disk_state.dart';
+import '../state/playback_state.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

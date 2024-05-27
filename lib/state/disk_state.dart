@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music/album/vinyl.dart';
+import '../album/vinyl.dart';
 
 class DiskState extends ChangeNotifier {
   Vinyl? leftVinyl;

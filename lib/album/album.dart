@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music/album/draggable_vinyl.dart';
+import 'draggable_vinyl.dart';
 
 class Album extends StatefulWidget {
   final String blogName;

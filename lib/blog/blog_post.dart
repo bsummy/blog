@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:music/blog/blog_carousel.dart';
+import 'blog_carousel.dart';
 
 class BlogPost extends StatelessWidget {
   final String markdown;

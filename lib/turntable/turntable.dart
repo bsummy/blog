@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:music/turntable/play_button.dart';
-import 'package:music/turntable/techno_screen.dart';
-import 'package:music/turntable/disk.dart';
+import 'play_button.dart';
+import 'techno_screen.dart';
+import 'disk.dart';
 
 class Turntable extends StatelessWidget {
   const Turntable({super.key});

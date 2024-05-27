@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music/state/playback_state.dart';
+import '../state/playback_state.dart';
 import 'package:provider/provider.dart';
 
 class PlayButton extends StatefulWidget {

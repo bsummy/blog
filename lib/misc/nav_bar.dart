@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:music/misc/nav_button.dart';
-import 'package:music/page/home_page.dart';
-import 'package:music/page/about_page.dart';
+import 'nav_button.dart';
+import '../page/home_page.dart';
+import '../page/about_page.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});

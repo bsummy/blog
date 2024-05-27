@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music/misc/nav_bar.dart';
-import 'package:music/blog/blog_display.dart';
+import '../misc/nav_bar.dart';
+import '../blog/blog_display.dart';
 
 class MarkdownPage extends StatelessWidget {
   final String postPath;

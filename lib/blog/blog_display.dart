@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:music/blog/blog_post.dart';
+import 'blog_post.dart';
 
 class BlogDisplay extends StatefulWidget {
   final String postPath;

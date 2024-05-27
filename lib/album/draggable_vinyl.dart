@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music/album/vinyl.dart';
+import 'vinyl.dart';
 
 class DraggableVinyl extends StatelessWidget {
   final Color color;

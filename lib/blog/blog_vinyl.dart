@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music/album/vinyl.dart';
-import 'package:music/blog/blog_display.dart';
+import '../album/vinyl.dart';
+import 'blog_display.dart';
 
 class BlogVinyl extends StatefulWidget {
   final Vinyl? vinyl;
