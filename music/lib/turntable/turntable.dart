@@ -18,8 +18,17 @@ class Turntable extends StatelessWidget {
       width: 400,
       height: 200,
       decoration: BoxDecoration(
+        border: Border.all(color: Colors.black, width: 4.0),
         shape: BoxShape.rectangle,
         color: Colors.grey[800],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: const Offset(0, 2), // changes the position of the shadow
+          ),
+        ],
       ),
       child: const Stack(
         children: [

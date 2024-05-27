@@ -20,7 +20,7 @@ class MarkdownPage extends StatelessWidget {
             return MaterialPageRoute(
               builder: (context) {
                 return const BlogDisplay(
-                            markdownFilePath: "../assets/markdown/blog1.MD",
+                            markdownFilePath: "../assets/posts/blog1",
                             title: "Blog Post 1",
                             date: "2024-05-25",
                           );
