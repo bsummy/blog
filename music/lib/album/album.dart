@@ -4,6 +4,7 @@ import 'package:music/album/draggable_vinyl.dart';
 class Album extends StatefulWidget {
   final String blogName;
   final String imagePath;
+  final String postPath;
   final String date;
   final Color color;
 
@@ -11,6 +12,7 @@ class Album extends StatefulWidget {
     super.key,
     required this.blogName,
     required this.imagePath,
+    required this.postPath,
     required this.date,
     required this.color,
   });
@@ -57,6 +59,7 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
       position: forwardSlideAnimation,
       child: DraggableVinyl(
         color: widget.color,
+        postPath: widget.postPath,
         blogName: widget.blogName,
         date: widget.date,
       ),

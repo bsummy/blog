@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music/misc/nav_button.dart';
-import 'package:music/page/markdown_page.dart';
 import 'package:music/page/home_page.dart';
 import 'package:music/page/about_page.dart';
-
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -13,22 +11,19 @@ class NavBar extends StatelessWidget {
     return Container(
       height: 50,
       color: Colors.pinkAccent,
-      child:  const Stack(
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              NavButton(name: "Home", route: HomePage()),
-
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              NavButton(name: "About", route: AboutPage()),
-              NavButton(name: "Blog", route: MarkdownPage(blogName: "Blog #1", date: "2024-05-25", markdownFilePath: "blog1")),
-                 ],
-          ),
+          NavButton(name: "Home", route: HomePage()),
+            Text( // need a real title here
+            "Bennett",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            ),
+          NavButton(name: "About", route: AboutPage()), // gotta redo this
         ],
       ),
     );

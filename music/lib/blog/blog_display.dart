@@ -3,13 +3,13 @@ import 'package:http/http.dart' as http;
 import 'package:music/blog/blog_post.dart';
 
 class BlogDisplay extends StatefulWidget {
-  final String markdownFilePath;
+  final String postPath;
   final String blogName;
   final String date;
 
   const BlogDisplay(
       {super.key,
-      required this.markdownFilePath,
+      required this.postPath,
       required this.blogName,
       required this.date});
 
@@ -22,7 +22,7 @@ class _BlogDisplayState extends State<BlogDisplay>
   Future<String> _fetchMarkdownFile() async {
     // put the blog number here
     final response = await http.get(
-        Uri.parse("../assets/posts/${widget.markdownFilePath}/markdown.md"));
+        Uri.parse("../assets/posts/${widget.postPath}/markdown.md"));
 
     return response.body;
   }
@@ -36,13 +36,17 @@ class _BlogDisplayState extends State<BlogDisplay>
     super.initState();
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 500),
+      reverseDuration: const Duration(milliseconds: 500),
       vsync: this,
     );
 
     _slideAnimation = Tween<Offset>(
       begin: const Offset(0.0, 0.5),
       end: const Offset(0.0, 0.0),
-    ).animate(_animationController);
+    ).animate(CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.fastEaseInToSlowEaseOut,
+    ));
 
     _playSlideInAnimation(); // Play animation on initial build
   }
@@ -73,7 +77,7 @@ class _BlogDisplayState extends State<BlogDisplay>
                 markdown: snapshot.data!,
                 blogName: widget.blogName,
                 date: widget.date,
-                path: widget.markdownFilePath),
+                path: widget.postPath),
           );
         } else if (snapshot.hasError) {
           return const Text('Error loading Markdown file');
