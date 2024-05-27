@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:music/album/album.dart';
 import 'package:music/misc/album_shelf.dart';
 import 'package:music/misc/nav_bar.dart';
 import 'package:music/turntable/turntable.dart';
+import 'package:provider/provider.dart';
+import 'package:music/state/disk_state.dart';
+import 'package:music/state/playback_state.dart';
+
 import 'package:music/blog/blog_display.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        appBar: PreferredSize(
+    PlaybackState playbackState = Provider.of<PlaybackState>(context);
+    DiskState diskState = Provider.of<DiskState>(context);
+
+    return Scaffold(
+        appBar: const PreferredSize(
           preferredSize: Size.fromHeight(kToolbarHeight),
           child: NavBar(),
         ),
@@ -19,12 +32,12 @@ class HomePage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Turntable(),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(10.0),
+                const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10.0),
                   child: SizedBox(
                     width: 500,
                     height: 500,
@@ -86,11 +99,13 @@ class HomePage extends StatelessWidget {
                     ]),
                   ),
                 ),
-                // BlogDisplay(
-                //   markdownFilePath: "../assets/posts/blog1",
-                //   title: "Blog Post 1",
-                //   date: "2024-05-25",
-                // ),
+                if (diskState.getVinyl(isLeft: true) != null &&
+                    playbackState.isLeftPlaying)
+                  const BlogDisplay(
+                    markdownFilePath: "blog1",
+                    blogName: "Blog Post 1",
+                    date: "2024-05-25",
+                  ),
               ],
             ),
           ),

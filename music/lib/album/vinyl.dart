@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_text/circular_text.dart';
 
-class Record extends StatelessWidget {
+class Vinyl extends StatelessWidget {
   final Color color;
-
   final String blogName;
   final String date;
 
-  const Record(
+  const Vinyl(
       {super.key,
       required this.color,
       required this.blogName,

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:music/album/record.dart';
+import 'package:music/album/vinyl.dart';
 
-class DraggableRecord extends StatelessWidget {
+class DraggableVinyl extends StatelessWidget {
   final Color color;
   final String blogName;
   final String date;
 
-  const DraggableRecord(
+  const DraggableVinyl(
       {super.key,
       required this.color,
       required this.blogName,
@@ -14,15 +14,15 @@ class DraggableRecord extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Draggable<Record>(
-      data: Record(color: color, blogName: blogName, date: date),
+    return Draggable<Vinyl>(
+      data: Vinyl(color: color, blogName: blogName, date: date),
       feedback:
-          Record(color: color, blogName: blogName, date: date),
+          Vinyl(color: color, blogName: blogName, date: date),
       childWhenDragging: Container(),
       onDragEnd: (details) {
         // Handle drag end (optional)
       },
-      child: Record(color: color, blogName: blogName, date: date),
+      child: Vinyl(color: color, blogName: blogName, date: date),
     );
   }
 }

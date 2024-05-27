@@ -1,16 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:music/album/vinyl.dart';
 
 class DiskState extends ChangeNotifier {
-  late Record leftRecord;
-  late Record rightRecord;
+  Vinyl? leftVinyl;
+  Vinyl? rightVinyl;
 
-  void setIsPlaying(Record record, {bool isLeft = true}) {
+  void setVinyl(Vinyl? vinyl, {bool isLeft = true}) {
     // uses a boolean to set the side because its easier that way
     if (isLeft) {
-      leftRecord = record;
+      leftVinyl = vinyl;
     } else {
-      rightRecord = record;
+      rightVinyl = vinyl;
     }
     notifyListeners();
+  }
+
+  void removeVinyl({bool isLeft = true}) {
+    // uses a boolean to set the side because its easier that way
+    if (isLeft) {
+      leftVinyl = null;
+    } else {
+      rightVinyl = null;
+    }
+    notifyListeners();
+  }
+
+  Vinyl? getVinyl({bool isLeft = true}) {
+    // uses a boolean to set the side because its easier that way
+    if (isLeft) {
+      return leftVinyl;
+    } else {
+      return rightVinyl;
+    }
   }
 }
