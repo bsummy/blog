@@ -43,11 +43,11 @@ class _PlayButtonState extends State<PlayButton> {
                     onPressed: () {
                       setState(() {
                         if (playbackState.isRightPlaying) {
-                          playbackState.setIsPlaying(false, false);
-                          playbackState.setIsPlaying(true, true);
+                          playbackState.setIsPlaying(false, isLeft: false);
+                          playbackState.setIsPlaying(true, isLeft: true);
                         } else {
                           playbackState.setIsPlaying(
-                              !playbackState.isLeftPlaying, true);
+                              !playbackState.isLeftPlaying, isLeft: true);
                         }
                       });
                     },
@@ -73,11 +73,11 @@ class _PlayButtonState extends State<PlayButton> {
                     onPressed: () {
                       setState(() {
                         if (playbackState.isLeftPlaying) {
-                          playbackState.setIsPlaying(false, true);
-                          playbackState.setIsPlaying(true, false);
+                          playbackState.setIsPlaying(false, isLeft: true);
+                          playbackState.setIsPlaying(true, isLeft: false);
                         } else {
                           playbackState.setIsPlaying(
-                              !playbackState.isRightPlaying, false);
+                              !playbackState.isRightPlaying, isLeft: false);
                         }
                       });
                     },

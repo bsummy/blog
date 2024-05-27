@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:music/album/draggable_record.dart';
 
 class Album extends StatefulWidget {
-  final String albumName;
+  final String blogName;
   final String imagePath;
-  final String artistName;
+  final String date;
   final Color color;
 
   const Album({
     super.key,
-    required this.albumName,
+    required this.blogName,
     required this.imagePath,
-    required this.artistName,
+    required this.date,
     required this.color,
   });
 
@@ -57,8 +57,8 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
       position: forwardSlideAnimation,
       child: DraggableRecord(
         color: widget.color,
-        albumName: widget.albumName,
-        artistName: widget.artistName,
+        blogName: widget.blogName,
+        date: widget.date,
       ),
     );
 

@@ -4,13 +4,13 @@ import 'package:music/blog/blog_post.dart';
 
 class BlogDisplay extends StatefulWidget {
   final String markdownFilePath;
-  final String title;
+  final String blogName;
   final String date;
 
   const BlogDisplay(
       {super.key,
       required this.markdownFilePath,
-      required this.title,
+      required this.blogName,
       required this.date});
 
   @override
@@ -19,8 +19,9 @@ class BlogDisplay extends StatefulWidget {
 
 class _BlogDisplayState extends State<BlogDisplay> {
   Future<String> _fetchMarkdownFile() async {
+    // put the blog number here
     final response =
-        await http.get(Uri.parse("${widget.markdownFilePath}/markdown.md"));
+        await http.get(Uri.parse("../assets/posts/${widget.markdownFilePath}/markdown.md"));
 
     return response.body;
   }
@@ -33,7 +34,7 @@ class _BlogDisplayState extends State<BlogDisplay> {
         if (snapshot.hasData) {
           return BlogPost(
               markdown: snapshot.data!,
-              title: widget.title,
+              blogName: widget.blogName,
               date: widget.date,
               path: widget.markdownFilePath);
         } else if (snapshot.hasError) {

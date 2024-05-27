@@ -4,14 +4,14 @@ import 'package:flutter_circular_text/circular_text.dart';
 class Record extends StatelessWidget {
   final Color color;
 
-  final String albumName;
-  final String artistName;
+  final String blogName;
+  final String date;
 
   const Record(
       {super.key,
       required this.color,
-      required this.albumName,
-      required this.artistName});
+      required this.blogName,
+      required this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class Record extends StatelessWidget {
                             children: [
                               TextItem(
                                 text: Text(
-                                  albumName,
+                                  blogName,
                                   style: const TextStyle(
                                     fontSize: 28,
                                     color: Colors.black,
@@ -73,7 +73,7 @@ class Record extends StatelessWidget {
                               ),
                               TextItem(
                                 text: Text(
-                                  artistName,
+                                  date,
                                   style: const TextStyle(
                                     fontSize: 20,
                                     color: Colors.black,
@@ -122,5 +122,3 @@ class Record extends StatelessWidget {
     );
   }
 }
-
-

@@ -13,7 +13,7 @@ class NavBar extends StatelessWidget {
     return Container(
       height: 50,
       color: Colors.pinkAccent,
-      child: const Stack(
+      child:  const Stack(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -26,7 +26,7 @@ class NavBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               NavButton(name: "About", route: AboutPage()),
-              NavButton(name: "Blog", route: MarkdownPage()),
+              NavButton(name: "Blog", route: MarkdownPage(blogName: "Blog #1", date: "2024-05-25", markdownFilePath: "blog1")),
                  ],
           ),
         ],
