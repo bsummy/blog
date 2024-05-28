@@ -12,92 +12,92 @@ class BlogMarkdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // adding personal markdown styling
-    return GestureDetector(
-      onTap: (text){
-        _launchURL(text);
+    return Markdown(
+      data: markdown,
+      selectable: true,
+      onTapLink: (text, url, title) {
+        if (url != null) {
+          _launchURL(url);
+        }
       },
-      child: Markdown(
-        data: markdown,
-        selectable: true,
-        // allows custom styling of the markdown
-        styleSheet: MarkdownStyleSheet(
-          p: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          h1: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 20,
-          ),
-          h2: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 18,
-          ),
-          h3: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          h4: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 14,
-          ),
-          h5: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 12,
-          ),
-          h6: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 10,
-          ),
-          blockquote: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          code: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          em: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          strong: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          del: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          listBullet: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          tableHead: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          tableBody: const TextStyle(
-            fontFamily: 'Lora',
-            fontSize: 16,
-          ),
-          tableHeadAlign: TextAlign.center,
-          tableBorder: TableBorder.all(
+      // allows custom styling of the markdown
+      styleSheet: MarkdownStyleSheet(
+        p: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        h1: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 20,
+        ),
+        h2: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 18,
+        ),
+        h3: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        h4: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 14,
+        ),
+        h5: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 12,
+        ),
+        h6: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 10,
+        ),
+        blockquote: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        code: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        em: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        strong: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        del: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        listBullet: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        tableHead: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        tableBody: const TextStyle(
+          fontFamily: 'Lora',
+          fontSize: 16,
+        ),
+        tableHeadAlign: TextAlign.center,
+        tableBorder: TableBorder.all(
+          color: Colors.black,
+          width: 1.0,
+        ),
+        blockSpacing: 16,
+        listIndent: 16,
+        blockquotePadding: const EdgeInsets.all(16),
+        blockquoteDecoration: BoxDecoration(
+          border: Border.all(
             color: Colors.black,
             width: 1.0,
           ),
-          blockSpacing: 16,
-          listIndent: 16,
-          blockquotePadding: const EdgeInsets.all(16),
-          blockquoteDecoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.black,
-              width: 1.0,
-            ),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          blockquoteAlign: WrapAlignment.start,
+          borderRadius: BorderRadius.circular(8.0),
         ),
+        blockquoteAlign: WrapAlignment.start,
       ),
     );
   }
@@ -105,11 +105,10 @@ class BlogMarkdown extends StatelessWidget {
 
 }
 
-  void _launchURL(String text) async {
-  if (await canLaunchUrl(Uri.parse(text))) {
-    await launchUrl(Uri.parse(text));
+  void _launchURL(String url) async {
+  if (await canLaunchUrl(Uri.parse(url))) {
+    await launchUrl(Uri.parse(url));
   } else {
-    // Handle invalid URL (optional)
-    //print('Could not launch $text');
+    //print('Could not launch $url');
   }
 }
