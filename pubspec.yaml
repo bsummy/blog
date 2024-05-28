@@ -80,9 +80,25 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/posts/blog1/
+    - assets/posts/blog1/cover/
     - assets/posts/blog1/photos/
-    - assets/posts/blog2/
+    - assets/posts/blog2/cover/
+    - assets/posts/blog2/photos/
+    - assets/posts/blog3/cover/
+    - assets/posts/blog3/photos/
+    - assets/posts/blog4/cover/
+    - assets/posts/blog4/photos/
+    - assets/posts/blog5/cover/
+    - assets/posts/blog5/photos/
+    - assets/posts/blog6/cover/
+    - assets/posts/blog6/photos/
+    - assets/posts/blog7/cover/
+    - assets/posts/blog7/photos/
+    - assets/posts/blog8/cover/
+    - assets/posts/blog8/photos/
+    - assets/posts/blog9/cover/
+    - assets/posts/blog9/photos/
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

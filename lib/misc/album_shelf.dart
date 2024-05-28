@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../album/album.dart';
+import 'package:music/album/wrapped_album.dart';
 
 class AlbumShelf extends StatelessWidget {
-  final List<Album> albums;
+  final List<WrappedAlbum> albums;
   final double spacing;
 
   const AlbumShelf({super.key, required this.albums, this.spacing = 10.0});

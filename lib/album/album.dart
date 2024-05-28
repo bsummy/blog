@@ -4,13 +4,15 @@ import 'draggable_vinyl.dart';
 class Album extends StatefulWidget {
   final String blogName;
   final String postPath;
+  final String imagePath;
   final String date;
   final Color color;
 
-  const Album({
+  Album({
     super.key,
     required this.blogName,
     required this.postPath,
+    required this.imagePath,
     required this.date,
     required this.color,
   });
@@ -76,10 +78,11 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
           ),
         ],
       ),
-      // change this path when we go to full blog posts
       // this may not work with a wildcard
-      child: Image.asset("../assets/posts/${widget.postPath}/cover.jpeg"),
-
+      child: Image.asset(
+        "../${widget.imagePath}",
+        fit: BoxFit.cover,
+      ),
     );
 
     var stackChildren1 = [
@@ -125,10 +128,9 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
         _showRecord = true;
       });
     }
-      _forwardSlideController.forward().whenComplete(() {
-        _bringToTop();
-        _forwardSlideController.reverse();
-      });
-
+    _forwardSlideController.forward().whenComplete(() {
+      _bringToTop();
+      _forwardSlideController.reverse();
+    });
   }
 }

@@ -19,7 +19,7 @@ class DraggableVinyl extends StatelessWidget {
     return Draggable<Vinyl>(
       data: Vinyl(color: color, postPath: postPath, blogName: blogName, date: date),
       feedback:
-          Vinyl(color: color, postPath: postPath,blogName: blogName, date: date),
+          Vinyl(color: color, postPath: postPath, blogName: blogName, date: date),
       childWhenDragging: Container(),
       onDragEnd: (details) {
         // Handle drag end (optional)

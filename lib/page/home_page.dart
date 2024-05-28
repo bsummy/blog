@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../album/album.dart';
+import 'package:music/album/wrapped_album.dart';
 import '../blog/blog_vinyl.dart';
 import '../misc/album_shelf.dart';
 import '../misc/nav_bar.dart';
@@ -39,57 +39,56 @@ class _HomePageState extends State<HomePage> {
                   child: SizedBox(
                     width: 500,
                     height: 500,
-                    child: AlbumShelf(albums: <Album>[
-                      Album(
+                    child: AlbumShelf(albums: <WrappedAlbum>[
+                      WrappedAlbum(
                         blogName: "Let's Start Here",
-
                         postPath: 'blog1',
                         date: '05-27-2024',
                         color: Colors.blueGrey,
                       ),
-                      Album(
+                      WrappedAlbum(
                         blogName: 'MM...FOOD',
                         postPath: 'blog2',
                         date: '05-28-2024',
                         color: Colors.green,
                       ),
-                      Album(
+                      WrappedAlbum(
                         blogName: '3 Feet High And Rising',
                         postPath: 'blog3',
                         date: '05-28-2024',
                         color: Colors.yellow,
                       ),
-                      Album(
+                      WrappedAlbum(
                         blogName: "Future Me Hates Me",
                         postPath: 'blog4',
                         date: '05-28-2024',
                         color: Colors.yellow,
                       ),
-                      Album(
+                      WrappedAlbum(
                         blogName: 'Atavista',
                         postPath: 'blog5',
                         date: '05-28-2024',
                         color: Colors.white,
                       ),
-                      Album(
+                      WrappedAlbum(
                         blogName: "Light Upon The Lake",
                         postPath: 'blog6',
                         date: '05-28-2024',
                         color: Colors.white,
                       ),
-                      Album(
+                      WrappedAlbum(
                         blogName: "The Lost Boy",
                         postPath: 'blog7',
                         date: '05-28-2024',
                         color: Colors.blue,
                       ),
-                      Album(
+                      WrappedAlbum(
                         blogName: "Coloring Book",
                         postPath: 'blog8',
                         date: '05-28-2024',
                         color: Colors.pink,
                       ),
-                      Album(
+                      WrappedAlbum(
                         blogName: "Care For Me",
                         postPath: 'blog9',
                         date: '05-28-2024',
