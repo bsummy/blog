@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
                     child: AlbumShelf(albums: <Album>[
                       Album(
                         blogName: "Let's Start Here",
+
                         postPath: 'blog1',
                         date: '05-27-2024',
                         color: Colors.blueGrey,

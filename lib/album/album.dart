@@ -79,6 +79,7 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
       // change this path when we go to full blog posts
       // this may not work with a wildcard
       child: Image.asset("../assets/posts/${widget.postPath}/cover.jpeg"),
+
     );
 
     var stackChildren1 = [

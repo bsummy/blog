@@ -106,3 +106,4 @@ Future<List<String>> getImagesFromFolder(String path) async {
 
   return imagePaths;
 }
+
