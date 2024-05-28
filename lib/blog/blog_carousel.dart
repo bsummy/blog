@@ -21,7 +21,7 @@ class BlogCarousel extends StatelessWidget {
         viewportFraction: 1, //doesn't look so good w/ diff picture sizes
       ),
       items: imagePaths
-          .map((imagePath) => _buildCarouselItem("../assets/posts/$imagePath"))
+          .map((imagePath) => _buildCarouselItem("../../$imagePath"))
           .toList(),
     );
   }

@@ -7,3 +7,4 @@ Upon opening the site, click on any of the albums to check that blog post. Drag 
 ---
 
 I began this project as part of a year-long goal to improve my front-end skills, and to learn the flutter library. Last fall, I met a young father during a layover who first told me about flutter. So, when I starting thinking about an a new project, it seemed like a nice change of pace from the React/Angular and HTML/CSS/JS paradigm.
+

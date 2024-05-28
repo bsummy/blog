@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter/services.dart';
 import 'blog_carousel.dart';
+import 'blog_markdown.dart';
 
 class BlogPost extends StatelessWidget {
   final String markdown;
@@ -55,101 +58,28 @@ class BlogPost extends StatelessWidget {
                       color: const Color.fromARGB(255, 142, 181, 204),
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    child: Markdown(
-                      data: markdown,
-                      // allows custom styling of the markdown
-                      styleSheet: MarkdownStyleSheet(
-                        p: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        h1: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 20,
-                        ),
-                        h2: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 18,
-                        ),
-                        h3: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        h4: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 14,
-                        ),
-                        h5: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 12,
-                        ),
-                        h6: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 10,
-                        ),
-                        blockquote: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        code: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        em: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        strong: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        del: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        listBullet: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        tableHead: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        tableBody: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        tableHeadAlign: TextAlign.center,
-                        tableBorder: TableBorder.all(
-                          color: Colors.black,
-                          width: 1.0,
-                        ),
-                        blockSpacing: 16,
-                        listIndent: 16,
-                        blockquotePadding: const EdgeInsets.all(16),
-                        blockquoteDecoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        blockquoteAlign: WrapAlignment.start,
-                      ),
+                    child: BlogMarkdown(
+                      markdown: markdown,
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   flex: 10,
-                  child: BlogCarousel(
-                    imagePaths: [
-                      'blog1/photos/Image1.png',
-                      'blog1/photos/Image2.png',
-                      'blog1/photos/Image3.jpeg',
-                      'blog1/photos/Image4.JPG',
-                    ],
+                  child: FutureBuilder<List<String>>(
+                    future: getImagesFromFolder("assets/posts/$path/photos/"),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final imagePaths = snapshot.data!;
+                        return BlogCarousel(
+                          imagePaths: imagePaths,
+                        );
+                      } else if (snapshot.hasError) {
+                        return const Text('Error loading images');
+                      }
+                      return const CircularProgressIndicator(); // Show loading indicator
+                    },
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -158,3 +88,22 @@ class BlogPost extends StatelessWidget {
     );
   }
 }
+
+Future<List<String>> getImagesFromFolder(String path) async {
+  // gets all the images from the path
+  // uses the AssetManifest.json to get the paths
+  // add more file types here if needed
+  final manifestContent = await rootBundle
+      .loadString('../../build/flutter_assets/AssetManifest.json');
+
+  final Map<String, dynamic> manifestMap = json.decode(manifestContent);
+  // >> To get paths you need these 2 lines ^
+
+  final imagePaths = manifestMap.keys
+      .where((String key) => key.contains(path))
+      .where((String key) => key.contains('.jpeg'))
+      .toList();
+
+  return imagePaths;
+}
+

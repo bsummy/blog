@@ -3,7 +3,6 @@ import 'draggable_vinyl.dart';
 
 class Album extends StatefulWidget {
   final String blogName;
-  final String imagePath;
   final String postPath;
   final String date;
   final Color color;
@@ -11,7 +10,6 @@ class Album extends StatefulWidget {
   const Album({
     super.key,
     required this.blogName,
-    required this.imagePath,
     required this.postPath,
     required this.date,
     required this.color,
@@ -79,7 +77,9 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
         ],
       ),
       // change this path when we go to full blog posts
-      child: Image.asset("../assets/albums/${widget.imagePath}.jpeg"),
+      // this may not work with a wildcard
+      child: Image.asset("../assets/posts/${widget.postPath}/cover.jpeg"),
+
     );
 
     var stackChildren1 = [
