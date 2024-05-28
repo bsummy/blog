@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'blog_carousel.dart';
+import 'blog_markdown.dart';
+
 
 class BlogPost extends StatelessWidget {
   final String markdown;
@@ -55,88 +56,7 @@ class BlogPost extends StatelessWidget {
                       color: const Color.fromARGB(255, 142, 181, 204),
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    child: Markdown(
-                      data: markdown,
-                      // allows custom styling of the markdown
-                      styleSheet: MarkdownStyleSheet(
-                        p: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        h1: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 20,
-                        ),
-                        h2: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 18,
-                        ),
-                        h3: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        h4: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 14,
-                        ),
-                        h5: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 12,
-                        ),
-                        h6: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 10,
-                        ),
-                        blockquote: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        code: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        em: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        strong: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        del: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        listBullet: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        tableHead: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        tableBody: const TextStyle(
-                          fontFamily: 'Lora',
-                          fontSize: 16,
-                        ),
-                        tableHeadAlign: TextAlign.center,
-                        tableBorder: TableBorder.all(
-                          color: Colors.black,
-                          width: 1.0,
-                        ),
-                        blockSpacing: 16,
-                        listIndent: 16,
-                        blockquotePadding: const EdgeInsets.all(16),
-                        blockquoteDecoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        blockquoteAlign: WrapAlignment.start,
-                      ),
-                    ),
+                    child: BlogMarkdown(markdown: markdown,),
                   ),
                 ),
                 const Expanded(
