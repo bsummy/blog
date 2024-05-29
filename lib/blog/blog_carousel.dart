@@ -34,12 +34,8 @@ class BlogCarousel extends StatelessWidget {
         border: Border.all(color: Colors.black, width: 1.0),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(8.0),
-        child: Image.asset(
-          imagePath,
-          fit: BoxFit.cover,
-        ),
-      ),
+          borderRadius: BorderRadius.circular(8.0),
+          child: Image(image: AssetImage(imagePath), fit: BoxFit.cover)),
     );
   }
 }
