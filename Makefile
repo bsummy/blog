@@ -22,8 +22,9 @@ endif
 	flutter create . --platform web
 
 	@echo "Building for web..."
-	flutter build web --base-href $(BASE_HREF) --release
-	
+	flutter build web --base-href $(BASE_HREF) --release --dart-define=FLUTTER_WEB_USE_SKIA=true
+	flutter run -d chrome --dart-define=FLUTTER_WEB_USE_SKIA=true --release
+
 	@echo "Deploying to git repository"
 	cd build/web && \
 	git init && \

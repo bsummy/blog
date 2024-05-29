@@ -50,7 +50,7 @@ Future<String> getImagesFromFolder(String path) async {
   // uses the AssetManifest.json to get the paths
   // add more file types here if needed
   final manifestContent = await rootBundle
-      .loadString('../../build/web/assets/AssetManifest.json');
+      .loadString('../../assets/AssetManifest.json');
 
   final Map<String, dynamic> manifestMap = json.decode(manifestContent);
   // >> To get paths you need these 2 lines ^
