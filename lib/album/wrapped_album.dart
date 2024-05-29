@@ -24,24 +24,33 @@ class WrappedAlbum extends StatefulWidget {
 class _WrappedAlbumState extends State<WrappedAlbum> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<String>(
-      future: getImagesFromFolder("assets/posts/${widget.postPath}/cover/"),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final imagePath = snapshot.data!;
-          return Album(
+    // return FutureBuilder<String>(
+    //   future: getImagesFromFolder("assets/posts/${widget.postPath}/cover/"),
+    //   builder: (context, snapshot) {
+    //     if (snapshot.hasData) {
+    //       final imagePath = snapshot.data!;
+    //       return Album(
+    //         blogName: widget.blogName,
+    //         postPath: widget.postPath,
+    //         imagePath: imagePath,
+    //         date: widget.date,
+    //         color: widget.color,
+    //       );
+    //     } else if (snapshot.hasError) {
+    //       return Text('Error loading images from assets/assets/posts/${widget.postPath}/cover/');
+    //     }
+    //     return Container(); // Show loading indicator
+    //   },
+    // );
+              return Album(
             blogName: widget.blogName,
             postPath: widget.postPath,
-            imagePath: imagePath,
+            imagePath: "assets/posts/${widget.postPath}/cover/cover.jpeg",
             date: widget.date,
             color: widget.color,
           );
-        } else if (snapshot.hasError) {
-          return Text('Error loading images from assets/posts/${widget.postPath}/cover/');
-        }
-        return Container(); // Show loading indicator
-      },
-    );
+
+
   }
 }
 
