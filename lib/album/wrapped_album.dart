@@ -37,7 +37,7 @@ class _WrappedAlbumState extends State<WrappedAlbum> {
             color: widget.color,
           );
         } else if (snapshot.hasError) {
-          return const Text('Error loading images');
+          return Text('Error loading images from assets/posts/${widget.postPath}/cover/');
         }
         return Container(); // Show loading indicator
       },
@@ -50,7 +50,7 @@ Future<String> getImagesFromFolder(String path) async {
   // uses the AssetManifest.json to get the paths
   // add more file types here if needed
   final manifestContent = await rootBundle
-      .loadString('../../build/flutter_assets/AssetManifest.json');
+      .loadString('../../build/web/assets/AssetManifest.json');
 
   final Map<String, dynamic> manifestMap = json.decode(manifestContent);
   // >> To get paths you need these 2 lines ^

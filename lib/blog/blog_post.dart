@@ -73,8 +73,8 @@ class BlogPost extends StatelessWidget {
                         return BlogCarousel(
                           imagePaths: imagePaths,
                         );
-                      } else if (snapshot.hasError) {
-                        return const Text('Error loading images');
+                        } else if (snapshot.hasError) {
+                        return Text('Error loading images from $path');
                       }
                       return const CircularProgressIndicator(); // Show loading indicator
                     },
@@ -106,4 +106,3 @@ Future<List<String>> getImagesFromFolder(String path) async {
 
   return imagePaths;
 }
-
