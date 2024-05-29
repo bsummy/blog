@@ -80,7 +80,7 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
       ),
       // this may not work with a wildcard
       child: Image(
-        image: AssetImage("../${widget.imagePath}"),
+        image: AssetImage(widget.imagePath),
         fit: BoxFit.cover,
       ),
     );
