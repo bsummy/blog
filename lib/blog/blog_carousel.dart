@@ -17,11 +17,11 @@ class BlogCarousel extends StatelessWidget {
         autoPlayCurve: Curves.fastOutSlowIn,
         enableInfiniteScroll: true,
         autoPlayInterval: const Duration(seconds: 5),
-        autoPlayAnimationDuration: const Duration(milliseconds: 2000),
+        autoPlayAnimationDuration: const Duration(milliseconds: 1500),
         viewportFraction: 1, //doesn't look so good w/ diff picture sizes
       ),
       items: imagePaths
-          .map((imagePath) => _buildCarouselItem("../../$imagePath"))
+          .map((imagePath) => _buildCarouselItem(imagePath))
           .toList(),
     );
   }

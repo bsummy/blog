@@ -4,16 +4,20 @@ import 'state/disk_state.dart';
 import 'package:provider/provider.dart';
 import 'state/playback_state.dart';
 import 'page/home_page.dart';
+import 'page/about_page.dart';
+import 'misc/nav_bar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // to run locally, need these two lines commented out
+  // ---
+  // WidgetsFlutterBinding.ensureInitialized();
 
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+  // ---
 
   runApp(
     MultiProvider(
@@ -31,8 +35,35 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      routes: <String, WidgetBuilder>{
+        '/': (BuildContext context) {
+          return Scaffold(
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(kToolbarHeight),
+              child: NavBar(
+                onNavigationTap: (routeName) {
+                  Navigator.pushNamed(context, routeName);
+                },
+              ),
+            ),
+            body: const HomePage(),
+          );
+        },
+        '/about': (BuildContext context) {
+          return Scaffold(
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(kToolbarHeight),
+              child: NavBar(
+                onNavigationTap: (routeName) {
+                  Navigator.pushNamed(context, routeName);
+                },
+              ),
+            ),
+            body: const AboutPage(),
+          );
+        }
+      },
     );
   }
 }

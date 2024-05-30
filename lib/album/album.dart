@@ -8,7 +8,7 @@ class Album extends StatefulWidget {
   final String date;
   final Color color;
 
-  Album({
+  const Album({
     super.key,
     required this.blogName,
     required this.postPath,
