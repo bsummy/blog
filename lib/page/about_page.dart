@@ -14,7 +14,7 @@ class AboutPage extends StatelessWidget {
               padding: EdgeInsets.all(10.0),
               child: CircleAvatar(
                 radius: 100,
-                backgroundImage: AssetImage('../assets/profile.jpeg'),
+                backgroundImage: AssetImage('assets/profile.jpeg'),
               ),
             ),
             const Padding(
@@ -95,7 +95,7 @@ Email: bennettsummy@gmail.com
               children: [
                 IconButton(
                   icon: Image.asset(
-                    '../assets/github_black.png',
+                    'assets/github_black.png',
                     width: 50,
                     height: 50,
                   ),
@@ -105,7 +105,7 @@ Email: bennettsummy@gmail.com
                 ),
                 IconButton(
                   icon: Image.asset(
-                    '../assets/linkedin_black.png',
+                    'assets/linkedin_black.png',
                     width: 50,
                     height: 50,
                   ),

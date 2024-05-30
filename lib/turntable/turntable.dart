@@ -28,16 +28,16 @@ class Turntable extends StatelessWidget {
       ),
       child: const Stack(
         children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Align(
-                alignment: Alignment.topCenter,
-                child: TechnoScreen(
-                  // Replace TechnoScreen with PlayButton
-                  albumName: 'Welcome,',
-                  artistName: 'Bennett',
-                )),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.all(8.0),
+          //   child: Align(
+          //       alignment: Alignment.topCenter,
+          //       child: TechnoScreen(
+          //         // Replace TechnoScreen with PlayButton
+          //         albumName: 'Welcome,',
+          //         artistName: 'Bennett',
+          //       )),
+          // ),
           Padding(
             padding: EdgeInsets.all(8.0),
             child:

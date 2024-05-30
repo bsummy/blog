@@ -48,7 +48,18 @@ class NavBar extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Padding( // TODO: move to the nav button page
+          IconButton(
+            icon: const Icon(Icons.add_alert
+            ),
+            color: Colors.white,
+            tooltip: 'Press for Directions',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Tap on an album to get a vinyl, then drag it to the turntable, and press play.')));
+            },
+          ),
+          Padding(
+            // TODO: move to the nav button page
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: () {

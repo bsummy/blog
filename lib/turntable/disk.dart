@@ -62,7 +62,7 @@ class _DiskState extends State<Disk> {
                     CircularText(children: [
                       TextItem(
                         text: const Text(
-                          "Drag an Album Here...",
+                          "Drag a Vinyl Here...",
                           style: TextStyle(
                             fontSize: 28,
                             color: Color(0xFF9E9E9E),

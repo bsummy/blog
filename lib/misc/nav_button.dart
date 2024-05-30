@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class NavButton extends StatelessWidget {
   final String name;
-  final Widget route;
+  final 
 
-  const NavButton({super.key, required this.name, required this.route});
+  const NavButton({super.key, required this.name, required this.function});
 
   @override
   Widget build(BuildContext context) {
