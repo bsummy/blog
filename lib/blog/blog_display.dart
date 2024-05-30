@@ -22,7 +22,7 @@ class _BlogDisplayState extends State<BlogDisplay>
   Future<String> _fetchMarkdownFile() async {
     // put the blog number here
     final response = await http.get(
-        Uri.parse("../assets/posts/${widget.postPath}/markdown.md"));
+        Uri.parse("assets/assets/posts/${widget.postPath}/markdown.md"));
 
     return response.body;
   }

@@ -94,11 +94,13 @@ Future<List<String>> getImagesFromFolder(String path) async {
   // uses the AssetManifest.json to get the paths
   // add more file types here if needed
   final manifestContent = await rootBundle
-      .loadString('../../build/flutter_assets/AssetManifest.json');
+      .loadString('../../assets/AssetManifest.json');
 
   final Map<String, dynamic> manifestMap = json.decode(manifestContent);
   // >> To get paths you need these 2 lines ^
 
+// image paths have the shape
+// ex) assets/posts/blog1/photos/IMG_7631.jpeg
   final imagePaths = manifestMap.keys
       .where((String key) => key.contains(path))
       .where((String key) => key.contains('.jpeg'))

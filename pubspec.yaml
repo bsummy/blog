@@ -47,6 +47,7 @@ dependencies:
   file_utils: ^1.0.1
   url_launcher: ^6.2.6
   glob: ^2.1.2
+  firebase_core: ^2.32.0
 
 
 dev_dependencies:
@@ -82,24 +83,31 @@ flutter:
   assets:
     - assets/posts/blog1/cover/
     - assets/posts/blog1/photos/
+    - assets/posts/blog1/markdown.md
     - assets/posts/blog2/cover/
     - assets/posts/blog2/photos/
+    - assets/posts/blog2/markdown.md
     - assets/posts/blog3/cover/
     - assets/posts/blog3/photos/
+    - assets/posts/blog3/markdown.md
     - assets/posts/blog4/cover/
     - assets/posts/blog4/photos/
+    - assets/posts/blog4/markdown.md
     - assets/posts/blog5/cover/
     - assets/posts/blog5/photos/
+    - assets/posts/blog5/markdown.md
     - assets/posts/blog6/cover/
     - assets/posts/blog6/photos/
+    - assets/posts/blog6/markdown.md
     - assets/posts/blog7/cover/
     - assets/posts/blog7/photos/
+    - assets/posts/blog7/markdown.md
     - assets/posts/blog8/cover/
     - assets/posts/blog8/photos/
+    - assets/posts/blog8/markdown.md
     - assets/posts/blog9/cover/
     - assets/posts/blog9/photos/
-
-
+    - assets/posts/blog9/markdown.md
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
