@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 class TechnoScreen extends StatelessWidget {
-  final String albumName;
-  final String artistName;
+  final String text;
 
   const TechnoScreen({
     super.key,
-    required this.albumName,
-    required this.artistName,
+    required this.text,
   });
 
   @override
@@ -16,27 +13,19 @@ class TechnoScreen extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Container(
-        width: 100,
-        height: 60,
+        width: 120,
+        height: 40,
         color: Colors.black,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              albumName,
+              text,
               style: const TextStyle(
                 fontSize: 14,
-                fontFamily: 'TechnoFont',
                 color: Colors.white,
               ),
-            ),
-            Text(
-              artistName,
-              style: const TextStyle(
-                fontSize: 12,
-                fontFamily: 'TechnoFont',
-                color: Colors.white,
-              ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),

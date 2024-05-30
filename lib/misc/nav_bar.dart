@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:music/misc/nav_button.dart';
 
 class NavBar extends StatelessWidget {
   final Function(String routeName) onNavigationTap;
+  final bool isHomePage;
 
-  const NavBar({super.key, required this.onNavigationTap});
+  const NavBar(
+      {super.key, required this.onNavigationTap, required this.isHomePage});
 
   void _handleAboutTap() {
     onNavigationTap('/about'); // Example function for About route
@@ -21,61 +24,33 @@ class NavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              onPressed: () {
-                _handleHomeTap();
-              },
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: const Color.fromARGB(255, 239, 90, 140),
-                shadowColor: Colors.red,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(32),
-                ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              // need a real title here
+              "Blog Name",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
-              child: const Text("Home"),
             ),
           ),
-          const Text(
-            // need a real title here
-            "Bennett",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          IconButton(
-            icon: const Icon(Icons.add_alert
-            ),
-            color: Colors.white,
-            tooltip: 'Press for Directions',
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Tap on an album to get a vinyl, then drag it to the turntable, and press play.')));
-            },
-          ),
-          Padding(
-            // TODO: move to the nav button page
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              onPressed: () {
-                _handleAboutTap();
-              },
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: const Color.fromARGB(255, 239, 90, 140),
-                shadowColor: Colors.red,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(32),
-                ),
+          Row(
+            children: [
+              NavButton(name: "Home", function: _handleHomeTap),
+              NavButton(name: "About", function: _handleAboutTap),
+              IconButton(
+                icon: const Icon(Icons.question_mark_sharp),
+                color: Colors.white,
+                tooltip: 'Press for Directions',
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text(
+                          'On the home page: 1) tap on an album to get a vinyl 2) drag the vinyl to the turntable 3) press play to display blog posts.')));
+                },
               ),
-              child: const Text("About"),
-            ),
+            ],
           ),
         ],
       ),

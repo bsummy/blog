@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 
 class NavButton extends StatelessWidget {
   final String name;
-  final 
+  final Function() function;
 
   const NavButton({super.key, required this.name, required this.function});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(5.0),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => route),
-          );
+          function();
         },
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,

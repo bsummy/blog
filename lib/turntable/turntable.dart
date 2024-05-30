@@ -28,16 +28,15 @@ class Turntable extends StatelessWidget {
       ),
       child: const Stack(
         children: [
-          // Padding(
-          //   padding: EdgeInsets.all(8.0),
-          //   child: Align(
-          //       alignment: Alignment.topCenter,
-          //       child: TechnoScreen(
-          //         // Replace TechnoScreen with PlayButton
-          //         albumName: 'Welcome,',
-          //         artistName: 'Bennett',
-          //       )),
-          // ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Align(
+                alignment: Alignment.topCenter,
+                child: TechnoScreen(
+                  // Replace TechnoScreen with PlayButton
+                  text: 'BLOG NAME',
+                )),
+          ),
           Padding(
             padding: EdgeInsets.all(8.0),
             child:
@@ -48,10 +47,14 @@ class Turntable extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
-                  child: Disk(isLeft: true,),
+                  child: Disk(
+                    isLeft: true,
+                  ),
                 ),
                 Flexible(
-                  child: Disk(isLeft: false,),
+                  child: Disk(
+                    isLeft: false,
+                  ),
                 ),
               ],
             ),

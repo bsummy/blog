@@ -12,11 +12,11 @@ import 'firebase_options.dart';
 Future<void> main() async {
   // to run locally, need these two lines commented out
   // ---
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // ---
 
   runApp(
@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
                 onNavigationTap: (routeName) {
                   Navigator.pushNamed(context, routeName);
                 },
+                isHomePage: true,
               ),
             ),
             body: const HomePage(),
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
                 onNavigationTap: (routeName) {
                   Navigator.pushNamed(context, routeName);
                 },
+                isHomePage: false,
               ),
             ),
             body: const AboutPage(),
