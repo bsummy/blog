@@ -22,8 +22,9 @@ class TechnoScreen extends StatelessWidget {
             Text(
               text,
               style: const TextStyle(
-                fontSize: 14,
-                color: Colors.white,
+                fontSize: 16,
+                color: Colors.pinkAccent,
+                fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
             ),

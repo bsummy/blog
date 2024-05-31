@@ -26,23 +26,45 @@ class Turntable extends StatelessWidget {
           ),
         ],
       ),
-      child: const Stack(
+      child: Stack(
         children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
+          const Padding(
+            padding: EdgeInsets.all(4.0),
             child: Align(
                 alignment: Alignment.topCenter,
                 child: TechnoScreen(
                   // Replace TechnoScreen with PlayButton
-                  text: 'BLOG NAME',
+                  text: 'Cherry Blossom',
+              
                 )),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(8.0),
             child:
                 Align(alignment: Alignment.bottomCenter, child: PlayButton()),
           ),
-          Center(
+          Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                iconSize: 24,
+                icon: const Icon(
+                  Icons.help_rounded,
+                  color: Color.fromARGB(255, 230, 155, 180),
+                ),
+                tooltip: 'Press for Directions', // Tooltip text
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    duration: Duration(seconds: 10),
+                    content: Text(
+                        '1) Tap on an album to get a vinyl 2) Drag the vinyl to the turntable 3) Press play and scroll down to see the blog post'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

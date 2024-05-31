@@ -10,9 +10,6 @@ class PlayButton extends StatefulWidget {
 }
 
 class _PlayButtonState extends State<PlayButton> {
-  bool isPlayingLeft = false;
-  bool isPlayingRight = false;
-
   @override
   Widget build(BuildContext context) {
     final PlaybackState playbackState = Provider.of<PlaybackState>(context);
@@ -47,7 +44,8 @@ class _PlayButtonState extends State<PlayButton> {
                           playbackState.setIsPlaying(true, isLeft: true);
                         } else {
                           playbackState.setIsPlaying(
-                              !playbackState.isLeftPlaying, isLeft: true);
+                              !playbackState.isLeftPlaying,
+                              isLeft: true);
                         }
                       });
                     },
@@ -77,7 +75,8 @@ class _PlayButtonState extends State<PlayButton> {
                           playbackState.setIsPlaying(true, isLeft: false);
                         } else {
                           playbackState.setIsPlaying(
-                              !playbackState.isRightPlaying, isLeft: false);
+                              !playbackState.isRightPlaying,
+                              isLeft: false);
                         }
                       });
                     },

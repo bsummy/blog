@@ -22,7 +22,6 @@ class BlogDisplay extends StatefulWidget {
 class _BlogDisplayState extends State<BlogDisplay>
     with SingleTickerProviderStateMixin {
   Future<String> _fetchMarkdownFile() async {
-    // put the blog number here
     final response = await http
         .get(Uri.parse("assets/assets/posts/${widget.postPath}/markdown.md"));
 
@@ -31,34 +30,27 @@ class _BlogDisplayState extends State<BlogDisplay>
 
   late AnimationController _animationController;
   late Animation<Offset> _slideAnimation;
-  bool _hasShownAnimation = false;
 
   @override
   void initState() {
     super.initState();
     _animationController = AnimationController(
-      duration: const Duration(milliseconds: 500),
-      reverseDuration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 800),
       vsync: this,
     );
 
     _slideAnimation = Tween<Offset>(
-      begin: const Offset(0.0, 0.5),
+      begin: const Offset(0.0, 1.0),
       end: const Offset(0.0, 0.0),
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.fastEaseInToSlowEaseOut,
     ));
-
-    _playSlideInAnimation(); // Play animation on initial build
+    _playSlideInAnimation();
   }
 
   void _playSlideInAnimation() {
-    if (!_hasShownAnimation) {
-      _animationController.forward().then((_) {
-        _hasShownAnimation = true; // Mark animation as shown
-      });
-    }
+    _animationController.forward().then((_) => null); // Avoid setting a flag
   }
 
   @override

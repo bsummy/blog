@@ -1,15 +1,15 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:music/page/home_page.dart';
 import 'package:music/page/about_page.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({Key? key}) : super(key: key);
+  const NavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2, // Number of tabs (Home and About)
+      length: 2, // Number of tabs (Home, Directions, About Me)
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -19,13 +19,15 @@ class NavBar extends StatelessWidget {
               indicator: UnderlineTabIndicator(
                 borderSide: BorderSide(color: Colors.white, width: 4.0),
               ),
-              labelColor: Colors.white, // pink text color
+              labelColor: Colors.white,
               labelStyle: TextStyle(fontWeight: FontWeight.bold),
-              unselectedLabelColor: Colors.black, // white text color
+              unselectedLabelColor: Colors.black,
+              physics: BouncingScrollPhysics(),
+              dragStartBehavior: DragStartBehavior.start,
               tabs: [
                 Tab(
                   icon: Row(
-                    mainAxisSize: MainAxisSize.min, // Minimum size for the row
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(Icons.house_sharp),
                       SizedBox(width: 8), // Add spacing between icon and text
@@ -44,36 +46,20 @@ class NavBar extends StatelessWidget {
                   ),
                 ),
               ],
-              onTap: onTabTap,
             ),
           ),
-
         ),
         body: const TabBarView(
           children: [
-            // Content for Home tab (replace with your widget)
             HomePage(),
-            // Content for About tab (replace with your widget)
             AboutPage(),
           ],
         ),
-
       ),
     );
   }
 }
 
-void onTabTap(int index) {
-  // Handle tab tap
-  switch (index) {
-    case 0:
-      // Home tab
-      break;
-    case 1:
-      // About tab
-      break;
-  }
-}
 
 /*
   @override

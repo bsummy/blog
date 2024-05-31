@@ -107,9 +107,13 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
         // Handle tap
         _toggleRecordVisibility();
       },
-      child: Stack(
-        children: stackChildren,
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: Stack(
+          children: stackChildren,
+        ),
       ),
+      
     );
   }
 
