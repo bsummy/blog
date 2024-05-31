@@ -35,37 +35,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: <String, WidgetBuilder>{
-        '/': (BuildContext context) {
-          return Scaffold(
-            appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(kToolbarHeight),
-              child: NavBar(
-                onNavigationTap: (routeName) {
-                  Navigator.pushNamed(context, routeName);
-                },
-                isHomePage: true,
-              ),
-            ),
-            body: const HomePage(),
-          );
-        },
-        '/about': (BuildContext context) {
-          return Scaffold(
-            appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(kToolbarHeight),
-              child: NavBar(
-                onNavigationTap: (routeName) {
-                  Navigator.pushNamed(context, routeName);
-                },
-                isHomePage: false,
-              ),
-            ),
-            body: const AboutPage(),
-          );
-        }
-      },
-    );
+    return const MaterialApp(
+        home: Scaffold(
+      body: NavBar(),
+    ));
   }
 }

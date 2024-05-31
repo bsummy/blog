@@ -9,12 +9,14 @@ class BlogPost extends StatelessWidget {
   final String markdown;
   final String blogName;
   final String date;
+  final Color color;
   final String path;
   const BlogPost(
       {super.key,
       required this.markdown,
       required this.blogName,
       required this.date,
+      required this.color,
       required this.path});
 
   @override
@@ -55,7 +57,7 @@ class BlogPost extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 4.0),
-                      color: const Color.fromARGB(255, 142, 181, 204),
+                      color: lightenColor(color, 2),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: BlogMarkdown(
@@ -73,7 +75,7 @@ class BlogPost extends StatelessWidget {
                         return BlogCarousel(
                           imagePaths: imagePaths,
                         );
-                        } else if (snapshot.hasError) {
+                      } else if (snapshot.hasError) {
                         return Text('Error loading images from $path');
                       }
                       return const CircularProgressIndicator(); // Show loading indicator
@@ -93,8 +95,8 @@ Future<List<String>> getImagesFromFolder(String path) async {
   // gets all the images from the path
   // uses the AssetManifest.json to get the paths
   // add more file types here if needed
-  final manifestContent = await rootBundle
-      .loadString('../../assets/AssetManifest.json');
+  final manifestContent =
+      await rootBundle.loadString('../../assets/AssetManifest.json');
 
   final Map<String, dynamic> manifestMap = json.decode(manifestContent);
   // >> To get paths you need these 2 lines ^
@@ -107,4 +109,11 @@ Future<List<String>> getImagesFromFolder(String path) async {
       .toList();
 
   return imagePaths;
+}
+
+Color lightenColor(Color color, double amount) {
+  // lightening a color by 20% to make it more readable
+  final hsl = HSLColor.fromColor(color);
+  final lightness = (hsl.lightness + (amount * 0.1)).clamp(0.0, 1.0);
+  return hsl.withLightness(lightness).toColor();
 }

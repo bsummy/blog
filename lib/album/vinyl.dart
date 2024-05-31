@@ -5,7 +5,6 @@ class Vinyl extends StatelessWidget {
   final Color color;
   final String postPath;
   final String blogName;
-
   final String date;
 
   const Vinyl(

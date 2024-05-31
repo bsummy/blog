@@ -30,7 +30,6 @@ class DiskState extends ChangeNotifier {
     if (isLeft) {
       return leftVinyl;
     } else {
-
       return rightVinyl;
     }
   }

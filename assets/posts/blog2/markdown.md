@@ -6,11 +6,14 @@ During a layover in LGA last fall, I was coding on my laptop when a young father
 
 
 ## Flutter
-For those unaware, most frontend development is written in effectively three parts: - JavaScript: any mechanics, function calls, etc. - React/HTML: the structure/template of the webpage, which can depend on the data passed in. - CSS: the styling of the webpage, meaning small tweaks to the look of objects.
+For those unaware, most frontend development is written in effectively three parts:
+    - JavaScript: any mechanics, function calls, etc.
+    - React/HTML: the structure/template of the webpage, which can depend on the data passed in.
+    - CSS: the styling of the webpage, meaning small tweaks to the look of objects.
 
 Flutter is written in the dart programming language, and effectively is only written in one part. With styling, functions, and widget calls all in one file, it requires significant nesting to keep code readable. However, this lends itself to easy development and a neat codebase. Having flutter's refactor tool and a prettier extension mapped to easy keyboard shortcuts also helped.
 
-When I first began working on this project, I thought that flutter was an exponential improvement in development time & ease of use from React. As I spent more time on it, I'm not sure that's true. I like it better than React, but I'm not sure if it's an order of magnitude better. 
+When I first began working on this project, I thought that flutter was an exponential improvement in development time & ease of use from React. As I spent more time on it, I'm not sure that's true. I like it better than React, but I'm not sure if it's an order of magnitude better.
 
 ## Website structure
 

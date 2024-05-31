@@ -6,12 +6,14 @@ class BlogDisplay extends StatefulWidget {
   final String postPath;
   final String blogName;
   final String date;
+  final Color color;
 
   const BlogDisplay(
       {super.key,
       required this.postPath,
       required this.blogName,
-      required this.date});
+      required this.date,
+      required this.color});
 
   @override
   _BlogDisplayState createState() => _BlogDisplayState();
@@ -21,8 +23,8 @@ class _BlogDisplayState extends State<BlogDisplay>
     with SingleTickerProviderStateMixin {
   Future<String> _fetchMarkdownFile() async {
     // put the blog number here
-    final response = await http.get(
-        Uri.parse("assets/assets/posts/${widget.postPath}/markdown.md"));
+    final response = await http
+        .get(Uri.parse("assets/assets/posts/${widget.postPath}/markdown.md"));
 
     return response.body;
   }
@@ -77,6 +79,7 @@ class _BlogDisplayState extends State<BlogDisplay>
                 markdown: snapshot.data!,
                 blogName: widget.blogName,
                 date: widget.date,
+                color: widget.color,
                 path: widget.postPath),
           );
         } else if (snapshot.hasError) {
