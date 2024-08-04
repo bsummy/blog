@@ -8,8 +8,6 @@ class Turntable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // might need the playback state to display what's playing on the technoscreen
-
     return Container(
       width: 400,
       height: 200,
@@ -33,13 +31,11 @@ class Turntable extends StatelessWidget {
             child: Align(
                 alignment: Alignment.topCenter,
                 child: TechnoScreen(
-                  // Replace TechnoScreen with PlayButton
-                  text: 'Cherry Blossom',
-              
+                  text: 'Homer',
                 )),
           ),
           const Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(4.0),
             child:
                 Align(alignment: Alignment.bottomCenter, child: PlayButton()),
           ),
@@ -51,7 +47,7 @@ class Turntable extends StatelessWidget {
                 iconSize: 24,
                 icon: const Icon(
                   Icons.help_rounded,
-                  color: Color.fromARGB(255, 230, 155, 180),
+                  color: Color.fromARGB(255, 83, 198, 114),
                 ),
                 tooltip: 'Press for Directions', // Tooltip text
                 onPressed: () => ScaffoldMessenger.of(context).showSnackBar(

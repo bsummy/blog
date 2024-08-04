@@ -10,7 +10,6 @@ class BlogCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height: 500,
         autoPlay: true, // can turn this back on for prod
         enlargeCenterPage: true,
         aspectRatio: 16 / 9,
@@ -20,9 +19,8 @@ class BlogCarousel extends StatelessWidget {
         autoPlayAnimationDuration: const Duration(milliseconds: 1500),
         viewportFraction: 1, //doesn't look so good w/ diff picture sizes
       ),
-      items: imagePaths
-          .map((imagePath) => _buildCarouselItem(imagePath))
-          .toList(),
+      items:
+          imagePaths.map((imagePath) => _buildCarouselItem(imagePath)).toList(),
     );
   }
 

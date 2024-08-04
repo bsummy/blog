@@ -14,7 +14,7 @@ class NavBar extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Container(
-            color: Colors.pinkAccent,
+            color: const Color.fromARGB(255, 83, 198, 114),
             child: const TabBar(
               indicator: UnderlineTabIndicator(
                 borderSide: BorderSide(color: Colors.white, width: 4.0),

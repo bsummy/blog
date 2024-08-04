@@ -16,15 +16,15 @@ class _PlayButtonState extends State<PlayButton> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Container(
-        width: 85,
-        height: 50,
+        width: 90,
+        height: 45,
         color: Colors.grey,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.all(2.0),
+                padding: const EdgeInsets.all(1.0),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.grey[600],
@@ -55,7 +55,7 @@ class _PlayButtonState extends State<PlayButton> {
             ),
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.all(2.0),
+                padding: const EdgeInsets.all(1.0),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.grey[600],

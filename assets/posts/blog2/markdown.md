@@ -4,7 +4,6 @@ For 90% of readers on this site, this will be a pretty boring post. Read on if y
 
 During a layover in LGA last fall, I was coding on my laptop when a young father started chatting with me about programming. I don't recall exactly how we got on the topic, but eventually we came around to talking about Flutter.
 
-
 ## Flutter
 For those unaware, most frontend development is written in effectively three parts:
     - JavaScript: any mechanics, function calls, etc.

@@ -28,6 +28,12 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
 
   int _topItemIndex = 1;
 
+  static const List<Map<String, dynamic>> colorMap = [
+    {'color': Colors.red, 'title': 'Red'},
+    {'color': Colors.green, 'title': 'Green'},
+    {'color': Colors.blue, 'title': 'Blue'},
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -79,9 +85,29 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
         ],
       ),
       // this may not work with a wildcard
-      child: Image(
-        image: AssetImage(widget.imagePath),
-        fit: BoxFit.cover,
+      child: Stack(
+        children: [
+          Image(
+            image: AssetImage(widget.imagePath),
+            fit: BoxFit.cover,
+          ),
+          Positioned(
+            top: 10,
+            left: 10,
+            child: Tooltip(
+              message: widget.blogName,
+              child: Container(
+                width: 20,
+                height: 20,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 1.0),
+                  shape: BoxShape.circle,
+                  color: widget.color,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
 
@@ -113,7 +139,6 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
           children: stackChildren,
         ),
       ),
-      
     );
   }
 

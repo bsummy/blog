@@ -28,21 +28,20 @@ class _WrappedAlbumState extends State<WrappedAlbum> {
       future: getImagesFromFolder("assets/posts/${widget.postPath}/cover/"),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          final imagePath = snapshot.data!;
           return Album(
             blogName: widget.blogName,
             postPath: widget.postPath,
-            imagePath: imagePath,
+            imagePath: snapshot.data!,
             date: widget.date,
             color: widget.color,
           );
         } else if (snapshot.hasError) {
-          return Text('Error loading images from assets/assets/posts/${widget.postPath}/cover/');
+          return Text(
+              'Error loading images from assets/assets/posts/${widget.postPath}/cover/');
         }
         return Container(); // Show loading indicator
       },
     );
-
   }
 }
 
@@ -50,8 +49,8 @@ Future<String> getImagesFromFolder(String path) async {
   // gets all the images from the path
   // uses the AssetManifest.json to get the paths
   // add more file types here if needed
-  final manifestContent = await rootBundle
-      .loadString('../../assets/AssetManifest.json');
+  final manifestContent =
+      await rootBundle.loadString('../../assets/AssetManifest.json');
 
   final Map<String, dynamic> manifestMap = json.decode(manifestContent);
   // >> To get paths you need these 2 lines ^

@@ -23,25 +23,66 @@ class AboutPage extends StatelessWidget {
                 'Bennett Summy',
                 style: TextStyle(
                   fontFamily: 'Lora',
-                  fontSize: 20,
+                  fontSize: 22,
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Text(
-                """
-McGill University '25 | B.A. in Software Engineering with a Minor in Political Science
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: const TextSpan(
 
-June - August '22: Chicago Blackhawks - Business Strategy and Analytics,  Data Intern
-
-January - August '23: Chicago Blackhawks -  Hockey Strategy and Analytics, Hockey Systems Intern
-
-June - August '24: Boston Red Sox -  Baseball Research and Development, Baseball Systems Intern
-                """,
-                style: TextStyle(
-                  fontFamily: 'Lora',
-                  fontSize: 16,
+                  style: TextStyle(
+                    fontFamily: 'Lora',
+                    fontSize: 18,
+                  ),
+                  children: [
+                    TextSpan(
+                      text:
+                          """Aspiring full-stack software engineer studying at McGill University in Montreal. Loves hockey, F1, reading, cooking, and wool socks.\n\n""",
+                    ),
+                    TextSpan(
+                      text: """McGill University '25: """,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          """B.A. in Software Engineering with a Minor in Political Science\n\n""",
+                    ),
+                    TextSpan(
+                      text: """June - August '24: """,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          """Boston Red Sox - Baseball Research and Development, Baseball Systems Intern\n\n""",
+                    ),
+                    TextSpan(
+                      text: """January - August '23: """,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          """Chicago Blackhawks - Hockey Strategy and Analytics, Hockey Systems Intern\n\n""",
+                    ),
+                    TextSpan(
+                      text: """June - August '22: """,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          """Chicago Blackhawks - Business Strategy and Analytics,  Data Intern""",
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -50,8 +91,8 @@ June - August '24: Boston Red Sox -  Baseball Research and Development, Baseball
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: const Color.fromARGB(255, 239, 90, 140),
-                    shadowColor: Colors.red,
+                    backgroundColor: const Color.fromARGB(255, 83, 198, 114),
+                    shadowColor: Colors.black,
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(32),

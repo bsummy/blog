@@ -11,11 +11,11 @@ Future<void> main() async {
   // to run locally, need these two lines commented out
   // lol maybe not i don't really know
   // ---
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
   // ---
 
   runApp(

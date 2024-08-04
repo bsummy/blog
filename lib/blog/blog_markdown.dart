@@ -101,11 +101,9 @@ class BlogMarkdown extends StatelessWidget {
       ),
     );
   }
-
-
 }
 
-  void _launchURL(String url) async {
+void _launchURL(String url) async {
   if (await canLaunchUrl(Uri.parse(url))) {
     await launchUrl(Uri.parse(url));
   } else {

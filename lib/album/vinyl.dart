@@ -62,7 +62,7 @@ class Vinyl extends StatelessWidget {
                                 text: Text(
                                   blogName,
                                   style: const TextStyle(
-                                    fontSize: 35,
+                                    fontSize: 30,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -76,7 +76,7 @@ class Vinyl extends StatelessWidget {
                                 text: Text(
                                   date,
                                   style: const TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 20,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),

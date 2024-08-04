@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:music/album/vinyl.dart';
 import 'blog_post.dart';
 
 class BlogDisplay extends StatefulWidget {
-  final String postPath;
-  final String blogName;
-  final String date;
-  final Color color;
+  final Vinyl? vinyl;
 
-  const BlogDisplay(
-      {super.key,
-      required this.postPath,
-      required this.blogName,
-      required this.date,
-      required this.color});
+  const BlogDisplay({
+    super.key,
+    required this.vinyl,
+  });
 
   @override
   _BlogDisplayState createState() => _BlogDisplayState();
@@ -22,8 +18,8 @@ class BlogDisplay extends StatefulWidget {
 class _BlogDisplayState extends State<BlogDisplay>
     with SingleTickerProviderStateMixin {
   Future<String> _fetchMarkdownFile() async {
-    final response = await http
-        .get(Uri.parse("assets/assets/posts/${widget.postPath}/markdown.md"));
+    final response = await http.get(
+        Uri.parse("assets/assets/posts/${widget.vinyl!.postPath}/markdown.md"));
 
     return response.body;
   }
@@ -67,12 +63,7 @@ class _BlogDisplayState extends State<BlogDisplay>
         if (snapshot.hasData) {
           return SlideTransition(
             position: _slideAnimation,
-            child: BlogPost(
-                markdown: snapshot.data!,
-                blogName: widget.blogName,
-                date: widget.date,
-                color: widget.color,
-                path: widget.postPath),
+            child: BlogPost(markdown: snapshot.data!, vinyl: widget.vinyl!),
           );
         } else if (snapshot.hasError) {
           return const Text('Error loading Markdown file');
