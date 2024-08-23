@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:music/album/vinyl.dart';
+import 'package:music/blog_management/color_management.dart';
 import 'blog_carousel.dart';
 import 'blog_markdown.dart';
 
@@ -17,6 +18,7 @@ class NarrowBlogPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color colorCategory = ColorManagement().getColorByKey(vinyl.category);
     return Column(
       children: [
         SizedBox(
@@ -47,7 +49,7 @@ class NarrowBlogPost extends StatelessWidget {
           height: 800,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black, width: 4.0),
-            color: lightenColor(vinyl.color, 2),
+            color: lightenColor(colorCategory, 2),
             borderRadius: BorderRadius.circular(15),
           ),
           child: BlogMarkdown(

@@ -1,10 +1,7 @@
-# music
+# Homer
 
-This is a personal website/blog that I've been working on for a couple weeks. The next year of my life is going to be a busy one, so I decided to create a way for my friend and family to stay up to date. I plan on posting blogs, journal posts, album reviews, assorted thoughts, and more on a totally irregular basis. It'll be totally self-driven, with no notifications or pinging from me.
+This is a personal blog I created as an alternative to social media. It serves a dual purpose:
 
-Upon opening the site, click on any of the albums to check that blog post. Drag the vinyl to the turntable, then press play on the record. The blog post will pop-up, and you can also see pictures from my journey.
+a) Update my friends and family to stay up to date on my life. It's totally opt-in, rather than pushing to feeds or sending notifications. I've got a busy year ahead of me, and I want to ensure people have a chance to see what's going on.
 
----
-
-I began this project as part of a year-long goal to improve my front-end skills, and to learn the flutter library. Last fall, I met a young father during a layover who first told me about flutter. So, when I starting thinking about an a new project, it seemed like a nice change of pace from the React/Angular and HTML/CSS/JS paradigm.
-
+b) Improve at front-end design while learning a new paradigm. Here, I have the freedom to build whatever features I feel like, and end up with a nice looking end product. I've already learned so much through building it, and I'll come up with new features to implement as I see fit.

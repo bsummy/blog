@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_text/circular_text.dart';
+import 'package:music/blog_management/color_management.dart';
 
 class Vinyl extends StatelessWidget {
-  final Color color;
+  final String category;
   final String postPath;
   final String blogName;
   final String date;
 
   const Vinyl(
       {super.key,
-      required this.color,
+      required this.category,
       required this.postPath,
       required this.blogName,
       required this.date});
 
   @override
   Widget build(BuildContext context) {
+    Color colorCategory = ColorManagement().getColorByKey(category);
+
     return Center(
       child: SizedBox(
         width: 150,
@@ -54,7 +57,7 @@ class Vinyl extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: color,
+                            color: colorCategory,
                           ),
                           child: CircularText(
                             children: [

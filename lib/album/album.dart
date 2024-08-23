@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music/blog_management/color_management.dart';
 import 'draggable_vinyl.dart';
 
 class Album extends StatefulWidget {
@@ -6,7 +7,7 @@ class Album extends StatefulWidget {
   final String postPath;
   final String imagePath;
   final String date;
-  final Color color;
+  final String category;
 
   const Album({
     super.key,
@@ -14,7 +15,7 @@ class Album extends StatefulWidget {
     required this.postPath,
     required this.imagePath,
     required this.date,
-    required this.color,
+    required this.category,
   });
 
   @override
@@ -27,12 +28,6 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
   late AnimationController _forwardSlideController;
 
   int _topItemIndex = 1;
-
-  static const List<Map<String, dynamic>> colorMap = [
-    {'color': Colors.red, 'title': 'Red'},
-    {'color': Colors.green, 'title': 'Green'},
-    {'color': Colors.blue, 'title': 'Blue'},
-  ];
 
   @override
   void initState() {
@@ -52,6 +47,8 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    Color colorCategory = ColorManagement().getColorByKey(widget.category);
+
     final Animation<Offset> forwardSlideAnimation = Tween<Offset>(
       begin: Offset.zero,
       end: const Offset(0, -1.0),
@@ -64,7 +61,7 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
       // slide transition that holds the record
       position: forwardSlideAnimation,
       child: DraggableVinyl(
-        color: widget.color,
+        category: widget.category,
         postPath: widget.postPath,
         blogName: widget.blogName,
         date: widget.date,
@@ -95,14 +92,15 @@ class _AlbumState extends State<Album> with TickerProviderStateMixin {
             top: 10,
             left: 10,
             child: Tooltip(
-              message: widget.blogName,
+              preferBelow: false,
+              message: widget.category,
               child: Container(
                 width: 20,
                 height: 20,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 1.0),
                   shape: BoxShape.circle,
-                  color: widget.color,
+                  color: colorCategory,
                 ),
               ),
             ),

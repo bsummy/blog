@@ -7,14 +7,14 @@ class WrappedAlbum extends StatefulWidget {
   final String blogName;
   final String postPath;
   final String date;
-  final Color color;
+  final String category;
 
   const WrappedAlbum({
     super.key,
     required this.blogName,
     required this.postPath,
     required this.date,
-    required this.color,
+    required this.category,
   });
 
   @override
@@ -33,7 +33,7 @@ class _WrappedAlbumState extends State<WrappedAlbum> {
             postPath: widget.postPath,
             imagePath: snapshot.data!,
             date: widget.date,
-            color: widget.color,
+            category: widget.category,
           );
         } else if (snapshot.hasError) {
           return Text(

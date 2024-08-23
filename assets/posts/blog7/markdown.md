@@ -25,11 +25,12 @@ And really that's all we know. It's unclear what the next phase of this movie re
 
 ## Contentedness
 
-In keeping with the horror/sci-fi element of the movie, a motif through Gambino's lyrics is of content. Gambino is pleased with his life, stating "All my life I had to try to survive, but it is alright now."
+In keeping with the horror/sci-fi element of the movie, a motif through Gambino's lyrics is of blissful satisfaction. Gambino is pleased with his life, stating "All my life I had to try to survive, but it is alright now."
 
 Gambino has fame:
 
 > "Everybody know me, I don't need I.D. (Uh-huh)"
+>
 > _H3@RT$ W3RE M3@NT T0 F7¥_
 
 Gambino has found love:
@@ -61,7 +62,7 @@ What else could you want? Why mess with anything? Gambino is happy to relax, kic
 
 - Survive (Ft: Chloe): Gambino reverts to his younger, more aggressive rap persona in this song. This time, it comes with a tinge of nostalgia as he acknowledges just how long he's been an artist.
 
-- Happy Survival (Ft: Khruangbin): In the penultimate song, lyrics take a back seat to vibes in a song that could easily fit in Khruangbin's 2024 album A La Sala. Driving home the contentness, Gambino gives the listener a bit to look up, breath, and just enjoy a track.
+- Happy Survival (Ft: Khruangbin): In the penultimate song, lyrics take a backseat to vibes in a song that could easily fit in Khruangbin's 2024 album A LA SALA. Driving home the contentedness that defines this album, Gambino gives the listener a song to look up, breath, and just enjoy the moment.
 
 ## Final Thoughts:
 

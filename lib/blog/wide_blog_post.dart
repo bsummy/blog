@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:music/album/vinyl.dart';
+import 'package:music/blog_management/color_management.dart';
 import 'blog_carousel.dart';
 import 'blog_markdown.dart';
 
@@ -17,6 +18,8 @@ class WideBlogPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color colorCategory = ColorManagement().getColorByKey(vinyl.category);
+
     return Column(
       children: [
         SizedBox(
@@ -47,7 +50,7 @@ class WideBlogPost extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black, width: 4.0),
-              color: lightenColor(vinyl.color, 2),
+              color: lightenColor(colorCategory, 2),
               borderRadius: BorderRadius.circular(15),
             ),
             child: BlogMarkdown(
@@ -77,35 +80,30 @@ class WideBlogPost extends StatelessWidget {
     );
   }
 
+  Future<List<String>> getImagesFromFolder(String path) async {
+    // gets all the images from the path
+    // uses the AssetManifest.json to get the paths
+    // add more file types here if needed
+    final manifestContent =
+        await rootBundle.loadString('../../assets/AssetManifest.json');
 
-Future<List<String>> getImagesFromFolder(String path) async {
-  // gets all the images from the path
-  // uses the AssetManifest.json to get the paths
-  // add more file types here if needed
-  final manifestContent =
-      await rootBundle.loadString('../../assets/AssetManifest.json');
-
-  final Map<String, dynamic> manifestMap = json.decode(manifestContent);
-  // >> To get paths you need these 2 lines ^
+    final Map<String, dynamic> manifestMap = json.decode(manifestContent);
+    // >> To get paths you need these 2 lines ^
 
 // image paths have the shape
 // ex assets/posts/blog1/photos/IMG_7631.jpeg
-  final imagePaths = manifestMap.keys
-      .where((String key) => key.contains(path))
-      .where((String key) => key.contains('.jpeg'))
-      .toList();
+    final imagePaths = manifestMap.keys
+        .where((String key) => key.contains(path))
+        .where((String key) => key.contains('.jpeg'))
+        .toList();
 
-  return imagePaths;
-}
+    return imagePaths;
+  }
 
-Color lightenColor(Color color, double amount) {
-  // lightening a color by 20% to make it more readable
-  final hsl = HSLColor.fromColor(color);
-  final lightness = (hsl.lightness + (amount * 0.1)).clamp(0.0, 1.0);
-  return hsl.withLightness(lightness).toColor();
-}
-
-
-
-
+  Color lightenColor(Color color, double amount) {
+    // lightening a color by 20% to make it more readable
+    final hsl = HSLColor.fromColor(color);
+    final lightness = (hsl.lightness + (amount * 0.1)).clamp(0.0, 1.0);
+    return hsl.withLightness(lightness).toColor();
+  }
 }

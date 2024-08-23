@@ -5,12 +5,10 @@ For 90% of readers on this site, this will be a pretty boring post. Read on if y
 During a layover in LGA last fall, I was coding on my laptop when a young father started chatting with me about programming. I don't recall exactly how we got on the topic, but eventually we came around to talking about Flutter.
 
 ## Flutter
-For those unaware, most frontend development is written in effectively three parts:
-    - JavaScript: any mechanics, function calls, etc.
-    - React/HTML: the structure/template of the webpage, which can depend on the data passed in.
-    - CSS: the styling of the webpage, meaning small tweaks to the look of objects.
 
-Flutter is written in the dart programming language, and effectively is only written in one part. With styling, functions, and widget calls all in one file, it requires significant nesting to keep code readable. However, this lends itself to easy development and a neat codebase. Having flutter's refactor tool and a prettier extension mapped to easy keyboard shortcuts also helped.
+For those unaware, most frontend development is written in effectively three parts: - JavaScript: any mechanics, function calls, etc. - React/HTML: the structure/template of the webpage, which can depend on the data passed in. - CSS: the styling of the webpage, meaning small tweaks to the look of objects.
+
+Flutter is written in the dart programming language, and effectively is only written in one part. With styling, functions, and widget calls all in one file, it requires significant nesting to keep code readable. However, this lends itself to easy development and a neat codebase. Having flutter's refactor tool and a prettier extension mapped to keyboard shortcuts also helped.
 
 When I first began working on this project, I thought that flutter was an exponential improvement in development time & ease of use from React. As I spent more time on it, I'm not sure that's true. I like it better than React, but I'm not sure if it's an order of magnitude better.
 
@@ -22,11 +20,11 @@ Each album on screen corresponds to a blog post in the assets folder. There, I h
 
 ## My finest moment
 
-Believe it or not, but the most difficult part of this project was the transition where the vinyl pops out of the back of the record. For whatever reason that was the transition in my head, and even after learning that it wasn't in-built in flutter, I had to make it anyway.
+Believe it or not, but the most difficult part of this project was the transition where the vinyl pops out of the back of the record. For whatever reason that was the transition in my head, and even after learning that it wasn't in-built to flutter, I had to make it anyway.
 
 I probably tried 10-15 distinct approaches that either ended up not looking right, or not working right. The final solution required an animation controller, stack swapping, and a bit of luck. I'm very proud of the way it looks, and the code itself even looks elegant!
 
-The web app would be roughly the same without the transition, but I am very proud of it. The first time it worked, I proceeded to host an impromptu solo dance party while clicking at random to watch my creation over and over.
+The first time that transition worked, it resulted in an impromptu dance party. I find it's pretty soothing to just watch the album bounce around.
 
 ## What's next
 

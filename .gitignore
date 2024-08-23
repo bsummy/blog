@@ -41,6 +41,9 @@ build/
 /test
 /windows
 
+/.vscode/settings.json
+/.firebase/hosting.YnVpbGQvd2Vi.cache
+
 # Symbolication related
 app.*.symbols
 
