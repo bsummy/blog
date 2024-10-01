@@ -10,7 +10,7 @@ class ColorManagement {
     'Software Engineering': Color.fromARGB(255, 83, 198, 114),
     'Music': Color.fromARGB(255, 156, 2, 234),
     'Cooking': Color.fromARGB(255, 255, 87, 34),
-    'Travel': Color.fromARGB(255, 255, 193, 7),
+    'Study Abroad': Color.fromARGB(255, 255, 193, 7),
   };
 
   Color getColorByKey(String key) {

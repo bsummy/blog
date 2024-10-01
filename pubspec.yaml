@@ -110,6 +110,12 @@ flutter:
     - assets/posts/blog9/cover/
     - assets/posts/blog9/photos/
     - assets/posts/blog9/markdown.md
+    - assets/posts/blog10/cover/
+    - assets/posts/blog10/photos/
+    - assets/posts/blog10/markdown.md
+    - assets/posts/blog11/cover/
+    - assets/posts/blog11/photos/
+    - assets/posts/blog11/markdown.md
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

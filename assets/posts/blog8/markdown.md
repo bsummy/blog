@@ -4,7 +4,7 @@ Amy loves this soup.
 
 I believe that all recipes are guardrails, not instructions. Every time I make it, I look at a couple different recipes and take the components I like. This is my best guess as to the "official" recipe; take it as such and make your own improvements.
 
-**Ingredients**
+# **Ingredients**
 
 Most ingredients can be easily varied. More or less bacon, milk, veggies, is all acceptable.
 
@@ -21,7 +21,7 @@ Most ingredients can be easily varied. More or less bacon, milk, veggies, is all
 - 1 8 oz can of corn - drained
 - (optional garnishes): shredded cheddar cheese, sour cream dollop, chopped chives, Franks Hot Sauce
 
-**Instructions**
+# **Instructions**
 
 1. Cook chopped bacon in a large soup pot until lightly browned.
 2. Remove bacon from the pot, leaving the bacon fat. Eat a couple bits of bacon for a fun snack.
