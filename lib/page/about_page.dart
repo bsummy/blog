@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -31,56 +32,69 @@ class AboutPage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: RichText(
                 textAlign: TextAlign.center,
-                text: const TextSpan(
-
-                  style: TextStyle(
+                text: TextSpan(
+                  style: const TextStyle(
                     fontFamily: 'Lora',
                     fontSize: 18,
                   ),
                   children: [
-                    TextSpan(
+                    const TextSpan(
                       text:
-                          """Aspiring full-stack software engineer studying at McGill University in Montreal. Loves hockey, F1, reading, cooking, and wool socks.\n\n""",
+                          """Aspiring full-stack software engineer studying at McGill University in Montreal, and currently on exchange in Finland. \n Loves hockey, F1, reading, cooking, and wool socks.\n\n""",
                     ),
-                    TextSpan(
-                      text: """McGill University '25: """,
-                      style: TextStyle(
+                    const TextSpan(
+                      text: """ Blog Archive \n\n """,
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     TextSpan(
-                      text:
-                          """B.A. in Software Engineering with a Minor in Political Science\n\n""",
-                    ),
-                    TextSpan(
-                      text: """June - August '24: """,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      text: """ Montreal Potato Chowder (Blog 8): """,
+                      style: const TextStyle(
+                        color: Colors.blueAccent,
                       ),
+                      mouseCursor: SystemMouseCursors.click,
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          _launchURL(
+                              'https://github.com/bsummy/blog/tree/main/assets/posts/blog8');
+                        },
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text:
-                          """Boston Red Sox - Baseball Research and Development, Baseball Systems Intern\n\n""",
+                          """Amy's favorite potato soup recipe, best served during winters in Montreal. \n\n""",
                     ),
                     TextSpan(
-                      text: """January - August '23: """,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      text: """Settling in (Blog 6): """,
+                      style: const TextStyle(
+                        color: Colors.blueAccent,
                       ),
+                      mouseCursor: SystemMouseCursors.click,
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          _launchURL(
+                              'https://github.com/bsummy/blog/tree/main/assets/posts/blog6');
+                        },
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text:
-                          """Chicago Blackhawks - Hockey Strategy and Analytics, Hockey Systems Intern\n\n""",
+                          """A short post about highlights & lowlights from my first month interning in Boston. """,
                     ),
                     TextSpan(
-                      text: """June - August '22: """,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      text: """Tech Talk (Blog 2): """,
+                      style: const TextStyle(
+                        color: Colors.blueAccent,
                       ),
+                      mouseCursor: SystemMouseCursors.click,
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          _launchURL(
+                              'https://github.com/bsummy/blog/tree/main/assets/posts/blog2');
+                        },
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text:
-                          """Chicago Blackhawks - Business Strategy and Analytics,  Data Intern""",
+                          """An overview of the process of building this blog, and the tech stack used. """,
                     ),
                   ],
                 ),

@@ -9,6 +9,12 @@ class BlogManagement extends StatelessWidget {
   Widget build(BuildContext context) {
     return const AlbumShelf(albums: <WrappedAlbum>[
       WrappedAlbum(
+        blogName: "Atop a Cake",
+        postPath: 'blog12',
+        date: '10-19-24',
+        category: "Study Abroad",
+      ),
+      WrappedAlbum(
         blogName: "Norden-Americans",
         postPath: 'blog11',
         date: '9-26-24',
@@ -62,12 +68,12 @@ class BlogManagement extends StatelessWidget {
         date: '6-2-24',
         category: "Boston",
       ),
-      WrappedAlbum(
-        blogName: 'Tech Talk',
-        postPath: 'blog2',
-        date: '5-30-24',
-        category: "Software Engineering",
-      ),
+      // WrappedAlbum(
+      //   blogName: 'Tech Talk',
+      //   postPath: 'blog2',
+      //   date: '5-30-24',
+      //   category: "Software Engineering",
+      // ),
       WrappedAlbum(
         blogName: "Let's Start Here",
         postPath: 'blog1',
