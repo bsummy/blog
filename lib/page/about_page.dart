@@ -49,6 +49,22 @@ class AboutPage extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
+                      text: """Proost! (Blog 9): """,
+                      style: const TextStyle(
+                        color: Colors.blueAccent,
+                      ),
+                      mouseCursor: SystemMouseCursors.click,
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          _launchURL(
+                              'https://github.com/bsummy/blog/tree/main/assets/posts/blog9');
+                        },
+                    ),
+                    const TextSpan(
+                      text:
+                          """A post-mortem of my summer in Boston, and the start of my European adventure. \n """,
+                    ),
+                    TextSpan(
                       text: """ Montreal Potato Chowder (Blog 8): """,
                       style: const TextStyle(
                         color: Colors.blueAccent,
@@ -62,7 +78,7 @@ class AboutPage extends StatelessWidget {
                     ),
                     const TextSpan(
                       text:
-                          """Amy's favorite potato soup recipe, best served during winters in Montreal. \n\n""",
+                          """Amy's favorite potato soup recipe, best served during winters in Montreal. \n""",
                     ),
                     TextSpan(
                       text: """Settling in (Blog 6): """,
@@ -78,7 +94,7 @@ class AboutPage extends StatelessWidget {
                     ),
                     const TextSpan(
                       text:
-                          """A short post about highlights & lowlights from my first month interning in Boston. """,
+                          """A short post about highlights & lowlights from my first month interning in Boston. \n """,
                     ),
                     TextSpan(
                       text: """Tech Talk (Blog 2): """,

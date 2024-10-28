@@ -11,6 +11,7 @@ class ColorManagement {
     'Music': Color.fromARGB(255, 156, 2, 234),
     'Cooking': Color.fromARGB(255, 255, 87, 34),
     'Study Abroad': Color.fromARGB(255, 255, 193, 7),
+    'Hockey': Color.fromARGB(255, 252, 132, 81),
   };
 
   Color getColorByKey(String key) {
